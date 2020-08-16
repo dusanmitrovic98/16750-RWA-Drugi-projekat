@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './components/home/home.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { LoginComponent } from './components/account/login/login.component';
 import { AuthGuard } from './helpers/auth.guard';
 import { Role } from './models/role';
+
+const accountModule = () => import('./components/account/account/account.module').then(x => x.AccountModule);
+//const usersModule = () => import('./users/users.module').then(x => x.UsersModule);
 
 const routes: Routes = [
     {
@@ -19,10 +21,8 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         data: { roles: [Role.Admin] }
     },
-    {
-        path: 'login',
-        component: LoginComponent
-    },
+    //{ path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
+    { path: 'account', loadChildren: accountModule },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

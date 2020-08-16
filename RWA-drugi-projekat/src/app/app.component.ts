@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthenticationService } from './services/authentication.service';
+import { AccountService } from './services/account.service';
 import { Role } from './models/role';
 import { User } from './models/user';
 
@@ -10,8 +10,8 @@ export class AppComponent {
     title: string = 'RWA-drugi-projekat';
     user: User;
 
-    constructor(private router: Router, private authenticationService: AuthenticationService) {
-        this.authenticationService.currentUser.subscribe(x => this.user = x);
+    constructor(private router: Router, private accountService: AccountService) {
+        this.accountService.user.subscribe(x => this.user = x);
     }
 
     get isAdmin() {
@@ -19,7 +19,6 @@ export class AppComponent {
     }
 
     logout() {
-        this.authenticationService.logout();
-        this.router.navigate(['/login']);
+        this.accountService.logout();
     }
 }

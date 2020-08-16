@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/account/login/login.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
   imports: [
@@ -24,7 +24,7 @@ import { LoginComponent } from './components/account/login/login.component';
       AppComponent,
       HomeComponent,
       AdminComponent,
-      LoginComponent
+      AlertComponent
   ],
   providers: [
       { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

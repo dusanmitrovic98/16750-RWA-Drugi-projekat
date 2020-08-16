@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { first } from 'rxjs/operators';
 
 import { User } from './../../models/user';
-import { AuthenticationService } from './../../services/authentication.service';
 import { UserService } from './../../services/user.service';
+import { AccountService } from './../../services/account.service';
 
 @Component({ templateUrl: 'home.component.html', styleUrls: ['./home.component.css'] })
 export class HomeComponent {
@@ -13,9 +13,9 @@ export class HomeComponent {
 
     constructor(
         private userService: UserService,
-        private authenticationService: AuthenticationService
+        private accountService: AccountService
     ) {
-        this.currentUser = this.authenticationService.currentUserValue;
+        this.currentUser = this.accountService.userValue;
     }
 
     ngOnInit() {
