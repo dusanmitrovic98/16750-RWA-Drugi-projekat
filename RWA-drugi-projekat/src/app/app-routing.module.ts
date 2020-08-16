@@ -7,7 +7,7 @@ import { AuthGuard } from './helpers/auth.guard';
 import { Role } from './models/role';
 
 const accountModule = () => import('./components/account/account/account.module').then(x => x.AccountModule);
-//const usersModule = () => import('./users/users.module').then(x => x.UsersModule);
+const usersModule = () => import('./components/users/users/users.module').then(x => x.UsersModule);
 
 const routes: Routes = [
     {
@@ -21,7 +21,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         data: { roles: [Role.Admin] }
     },
-    //{ path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
+    { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
     { path: 'account', loadChildren: accountModule },
 
     // otherwise redirect to home

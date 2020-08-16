@@ -12,6 +12,9 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { EditUserComponent } from './components/users/edit-user/edit-user.component';
+import { LayoutComponent } from './components/users/layout/layout.component';
+import { UserListComponent } from './components/users/user-list/user-list.component';
 
 @NgModule({
   imports: [
@@ -24,7 +27,7 @@ import { AlertComponent } from './components/alert/alert.component';
       AppComponent,
       HomeComponent,
       AdminComponent,
-      AlertComponent
+      AlertComponent,
   ],
   providers: [
       { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
