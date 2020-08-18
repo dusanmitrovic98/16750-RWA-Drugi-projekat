@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   imports: [
@@ -19,6 +21,14 @@ import { AlertComponent } from './components/alert/alert.component';
       ReactiveFormsModule,
       HttpClientModule,
       AppRoutingModule,
+      StoreModule.forRoot({}, {}),
+      StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
   ],
   declarations: [
       AppComponent,

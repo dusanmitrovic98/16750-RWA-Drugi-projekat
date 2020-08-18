@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "RWA-drugi-projekat"
+    }
+  },
+  "defaultProject": "RWA-drugi-projekat",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
