@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { reducers, metaReducers } from './reducers';
       HomeComponent,
       AdminComponent,
       AlertComponent,
+      ProductListComponent,
   ],
   providers: [
       { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
