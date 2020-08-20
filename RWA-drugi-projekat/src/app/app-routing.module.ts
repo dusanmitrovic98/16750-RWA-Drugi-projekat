@@ -8,6 +8,7 @@ import { Role } from './models/role';
 
 const accountModule = () => import('./components/account/account/account.module').then(x => x.AccountModule);
 const usersModule = () => import('./components/users/users/users.module').then(x => x.UsersModule);
+const productsModule = () => import('./components/products/products.module').then(x => x.ProductsModule);
 
 const routes: Routes = [
     {
@@ -23,7 +24,11 @@ const routes: Routes = [
     },
     { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
     { path: 'account', loadChildren: accountModule },
-
+    {
+        path: "product",
+        //loadChildren: "../app/products/products.module#ProductsModule"
+        loadChildren: productsModule
+    },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];

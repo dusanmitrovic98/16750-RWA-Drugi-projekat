@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { fakeBackendProvider } from './helpers/fake-backend';
@@ -14,15 +14,18 @@ import { HomeComponent } from './components/home/home.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
-import { ProductListComponent } from './components/product-list/product-list.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
 
 @NgModule({
   imports: [
+      FormsModule,
       BrowserModule,
       ReactiveFormsModule,
       HttpClientModule,
       AppRoutingModule,
-      StoreModule.forRoot({}, {}),
       StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
@@ -30,13 +33,14 @@ import { ProductListComponent } from './components/product-list/product-list.com
         strictActionImmutability: true
       }
     }),
+      StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+      EffectsModule.forRoot([AppEffects, ])
   ],
   declarations: [
       AppComponent,
       HomeComponent,
       AdminComponent,
       AlertComponent,
-      ProductListComponent,
   ],
   providers: [
       { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

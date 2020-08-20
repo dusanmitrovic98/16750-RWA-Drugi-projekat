@@ -5,7 +5,7 @@ import { User } from './../../models/user';
 import { UserService } from './../../services/user.service';
 import { AccountService } from './../../services/account.service';
 
-@Component({ templateUrl: 'home.component.html', styleUrls: ['./home.component.css'] })
+@Component({ templateUrl: './home.component.html', styleUrls: ['./home.component.css'] })
 export class HomeComponent {
     loading = false;
     currentUser: User;

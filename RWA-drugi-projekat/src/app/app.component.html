@@ -4,6 +4,9 @@
       <a class="nav-item nav-link text-white" routerLink="/">Home</a>
       <a class="nav-item nav-link text-white" routerLink="/admin" *ngIf="isAdmin">Admin</a>
       <a class="nav-item nav-link text-white" (click)="logout()">Logout</a>
+      <a class="nav-item nav-link text-white"
+      [routerLink]="['/product/list']"
+      routerLinkActive="active">Products</a>
   </div>
 </nav>
 

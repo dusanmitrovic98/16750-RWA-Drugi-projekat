@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { Product } from "../../models/product";
-import { ProductService } from "../../services/product.service";
+import { Product } from "../../../models/product";
+import { ProductService } from "../../../services/product.service";
 import { Router } from "@angular/router";
-import { ProductState, selectProducts } from "../../store";
+import { ProductState, selectProducts } from "../../../products/store/index";
 import { Store, select } from "@ngrx/store";
-import * as fromActions from "../../store/product.actions";
+import * as fromActions from "../../../products/store/products.actions";
 import { Observable } from "rxjs";
 
 @Component({
