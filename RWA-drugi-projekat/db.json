@@ -38,26 +38,10 @@
   ],
   "products": [
     {
-      "id": 1,
-      "name": "Gorgeous Frozen Pants",
-      "description": "Iure qui commodi occaecati qui ipsum. Natus quas cumque.",
-      "price": "395.00",
-      "imageUrl": "https://source.unsplash.com/1600x900/?product",
-      "quantity": 4671
-    },
-    {
-      "id": 2,
-      "name": "Rustic Steel Tunaa",
-      "description": "Dicta impedit voluptatem id ea officia dolorum rerum quo. Ipsam pariatur ipsum omnis.",
-      "price": "895.00",
-      "imageUrl": "https://source.unsplash.com/1600x900/?product",
-      "quantity": 89653
-    },
-    {
       "id": 3,
       "name": "Awesome Soft Hat",
       "description": "Hic ea sint alias eum quis aut aut. Rerum animi sed.",
-      "price": "401.00",
+      "price": "400.00",
       "imageUrl": "https://source.unsplash.com/1600x900/?product",
       "quantity": 51737
     },

@@ -4,6 +4,10 @@ import { switchMap, map } from "rxjs/operators";
 import { ProductService } from "../../../services/product.service";
 import { Observable } from "rxjs";
 import { Product } from "../../../models/product";
+import { Store, select } from '@ngrx/store';
+import { ProductState } from 'src/app/products/store/product.reducer';
+import { selectedProduct } from 'src/app/products/store/product.selectors';
+import * as fromActions from "../../../products/store/product.actions";
 
 @Component({
   selector: "app-product",
@@ -16,23 +20,18 @@ export class ProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: ProductService
+    private service: ProductService,
+    private store: Store<ProductState>
   ) {}
 
   ngOnInit() {
-    this.product$ = this.service.getProduct(
-      this.route.snapshot.paramMap.get("id")
-    );
+    this.store.dispatch(
+      fromActions.loadProduct({id: this.route.snapshot.paramMap.get("id")})
+      );
+    this.product$ = this.store.pipe(select(selectedProduct));  
   }
 
-  deleteProduct(id: number) {
-    const productsObserver = {
-      next: () => {
-        console.log("Product Deleted");
-        this.router.navigate(["/product/list"]);
-      },
-      error: err => console.error(err)
-    };
-    this.service.deleteProduct(id).subscribe(productsObserver);
+  deleteProduct(id: string) {
+    this.store.dispatch(fromActions.deleteProduct({id}));
   }
 }

@@ -26,10 +26,10 @@ const routes: Routes = [
     { path: 'account', loadChildren: accountModule },
     {
         path: "product",
-        //loadChildren: "../app/products/products.module#ProductsModule"
-        loadChildren: productsModule
+        loadChildren: productsModule,
+        canActivate: [AuthGuard],
+        data: { roles: [Role.Admin] }
     },
-    // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];
 

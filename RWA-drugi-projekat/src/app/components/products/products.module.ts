@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import * as fromProductState from '../../products/store';
+import * as fromProductState from '../../products/store/product.reducer';
 import { ProductService } from '../../services/product.service';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductComponent } from './product/product.component';
@@ -10,7 +10,8 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductsRoutingModule } from './products-routing/products-routing.module';
 import { FormsModule } from '@angular/forms';
 import { EffectsModule } from "@ngrx/effects";
-import { ProductEffects } from "./../../products/store/product.effects";
+import * as fromProduct from "./../../products/store/product.reducer";
+import { ProductEffects } from '../../products/store/product.effects';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,8 @@ import { ProductEffects } from "./../../products/store/product.effects";
     CommonModule,
     ProductsRoutingModule,
     FormsModule,
-    StoreModule.forFeature(
-      fromProductState.productStateFeatureKey,
-      fromProductState.reducers,
-      { metaReducers: fromProductState.metaReducers }
-    ),
-    EffectsModule.forFeature([ProductEffects])
+    EffectsModule.forFeature([ProductEffects]),
+    StoreModule.forFeature(fromProduct.productsFeatureKey, fromProduct.reducer)
   ],
   providers: [ProductService],
   exports: [
