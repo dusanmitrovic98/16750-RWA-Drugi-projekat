@@ -1,105 +1,262 @@
 {
-  "posts": [
+  "products": [
     {
       "id": 1,
-      "title": "AngularJS (1.0.0)",
-      "releaseDate": "June 14th, 2012"
+      "name": "God's Trigger",
+      "description": "Slay enemies with speed and precision in an over-the-top show of blood and explosions. Play solo or with others, make split-second decisions, dodge bullets, and use weapons and abilities to inflict violence in the most graphic way possible.",
+      "price": "14.99",
+      "imageUrl": "https://cdn1.epicgames.com/ceaa24233cdb4b678a1cf515e3a912e8/offer/EGS_GodsTrigger_OneMoreLevel_S2-1200x1600-f358d6781c0b38616e6cad865a427f13.jpg?h=854&amp;resize=1&amp;w=640",
+      "quantity": 1,
+      "embed": "",
+      "developer": "One More Level",
+      "publisher": "Techland",
+      "releaseDate": "Aug 20, 2020",
+      "tags": "Action,Indie,Rogue-Like",
+      "rating": "–",
+      "platform": "Windows",
+      "detailedDescription": [
+        {
+          "paragraphName": "God's Trigger",
+          "paragraphDetails": "God’s Trigger is a power fantasy where you dispatch enemies with speed and precision in a balet of blood and explosions. Burst through a room in seconds killing with one of the many weapons, freely selectable special abilities, environmental hazards, and melee attacks."
+        },
+        {
+          "paragraphName": "Kill enemies in the most graphic way possible",
+          "paragraphDetails": "Make split-second decisions, dodge bullets and inflict violence in a highly stylized, fast-paced bloodbath. Each character brings their own unique powers. With a treasure trove of weapons and customizable special abilities you have the means to annihilate your enemies in just the way you like."
+        },
+        {
+          "paragraphName": "Two heroes working together will slay enemies twice as fast!",
+          "paragraphDetails": "Switch freely between Harry and Judy, the Angel and the Demon, at any moment in solo mode, or grab a friend and work together in co-op for even greater bloodshed!"
+        }
+      ],
+      "detailedDescriptionImagesUrls": [
+        {
+          "imageURL": "https://cdn2.unrealengine.com/egs-godstrigger-onemorelevel-g2-01-1920x1080-708705014.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/egs-godstrigger-onemorelevel-g2-02-1920x1080-708705131.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/egs-godstrigger-onemorelevel-g2-02-1920x1080-708705131.jpg"
+        }
+      ],
+      "socialLinks": {
+        "instagram": "",
+        "gamePage": "https://godstriggergame.com",
+        "discord": "",
+        "facebook": "",
+        "twitter": ""
+      },
+      "minimumSysReq": {
+        "OS": "Windows 7 / 8.1 / 10 (64 bit)",
+        "Processor": "Intel Core i5 2,3 GHz or AMD equivalent",
+        "Memory": "4 GB RAM",
+        "Storage": "9 GB available space",
+        "DirectX": "11",
+        "Graphics": "NVIDIA GeForce 560 GTX 2 GB"
+      },
+      "recommendedSysReq": {
+        "OS": "Windows 10 (64 bit)",
+        "Processor": "Intel Core i7 3,0 GHz or AMD equivalent",
+        "Memory": "8 GB RAM",
+        "Storage": "9 GB available space",
+        "DirectX": "11",
+        "Graphics": "NVIDIA GeForce GTX 970 4 GB"
+      },
+      "languagesSupported": "Audio: EnglishText: English, Chinese - Simplified, German, Italian, Polish, Russian, Spanish - Spain, Japanese, Portuguese - Brazil, French"
     },
     {
       "id": 2,
-      "title": "Angular 2",
-      "releaseDate": "September 14, 2016"
+      "name": "Mortal Shell",
+      "description": "Mortal Shell is a deep action-RPG that tests your sanity and resilience in a shattered world. Your adversaries spare no mercy, with survival demanding superior awareness and precision. Possess lost warriors, discover hidden sanctums, and face formidable foes.",
+      "price": "29.99",
+      "imageUrl": "https://cdn1.epicgames.com/ff8c96d781824ba1ae62d18d207fc52e/offer/EGS_MortalShell_ColdSymmetry_S6-1200x1600-10607273626b5c7b4e07dd999d9fcad4.jpg?h=854&resize=1&w=640",
+      "quantity": 1,
+      "embed": "",
+      "developer": "Cold Symmetry",
+      "publisher": "Playstack Ltd",
+      "releaseDate": "Aug 18, 2020",
+      "tags": [
+        "Indie",
+        "RPG",
+        "Single Player"
+      ],
+      "rating": "–",
+      "platform": [
+        "Windows"
+      ],
+      "detailedDescription": [
+        {
+          "paragraphName": "Mortal Shell",
+          "paragraphDetails": "Mortal Shell is a ruthless and deep action-RPG that tests your sanity and resilience in a shattered world. As the remains of humanity wither and rot, zealous foes fester in the ruins. They spare no mercy, with survival demanding superior awareness, precision and instincts. Track down hidden sanctums of devout followers and discover your true purpose."
+        },
+        {
+          "paragraphName": "Possess Lost Warriors",
+          "paragraphDetails": "The lost remains of defeated warriors are yours to discover. Awaken these Mortal Shells, occupy their bodies, and master unique combat styles."
+        },
+        {
+          "paragraphName": "Iron Sharpens Iron",
+          "paragraphDetails": "Combat is strategic, deliberate, and unforgiving. Commit your sword only when an opportunity opens."
+        },
+        {
+          "paragraphName": "Face Formidable Foes",
+          "paragraphDetails": "Your path is guarded by adversaries, devoted to inscrutable gods. Behold creatures both pitiable and grotesque and muster your courage and face them down."
+        }
+      ],
+      "detailedDescriptionImagesUrls": [
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fmortal-shell%2Fhome%2FEGS_MortalShell_ColdSymmetry_G1A_07-1920x1080-ced33eff494bf4dec2b0468cf3f38ce312c7397a.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fmortal-shell%2Fhome%2FEGS_MortalShell_ColdSymmetry_G1A_08-1920x1080-f047a1357f1939160dab96740293a0b1993ad69e.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fmortal-shell%2Fhome%2FEGS_MortalShell_ColdSymmetry_G1A_09-1920x1080-9d8ff1c12aeb61b3148ab73c218f606357cfdf2a.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fmortal-shell%2Fhome%2FEGS_MortalShell_ColdSymmetry_G1A_06-1920x1080-093f3bca207d39c025eb232b2553c3cbb8c1a98d.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fmortal-shell%2Fhome%2FEGS_MortalShell_ColdSymmetry_G1A_02-1920x1080-822fbe5ec58f5237b9711dfff960069576df36ff.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fmortal-shell%2Fhome%2FEGS_MortalShell_ColdSymmetry_G1A_11-1920x1080-a6cff478ae2845abecd3dac332e2ef6e3bdb5e3a.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fmortal-shell%2Fhome%2FEGS_MortalShell_ColdSymmetry_G1A_05-1920x1080-d137365fa39a833460a146abb0c08ce2553af664.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fmortal-shell%2Fhome%2FEGS_MortalShell_ColdSymmetry_G1A_04-1920x1080-eeca306fd1e2b53a08e5bfd303bccf05c6ed9baa.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fmortal-shell%2Fhome%2FEGS_MortalShell_ColdSymmetry_G1A_10-1920x1080-db396bd82b4446e6c4cfbe94c0283c702ec7e84c.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fmortal-shell%2Fhome%2FEGS_MortalShell_ColdSymmetry_G1A_03-1920x1080-b7b031a5fa2cddf17581d453bee675d9fef3a3e2.jpg"
+        }
+      ],
+      "socialLinks": {
+        "instagram": "",
+        "gamePage": "",
+        "discord": "",
+        "facebook": "",
+        "twitter": ""
+      },
+      "minimumSysReq": {
+        "OS": "64-bit processor and operating system",
+        "Processor": "Intel Core i5-4590 or AMD FX 8350",
+        "Memory": "8GB RAM",
+        "Storage": "40GB HD",
+        "DirectX": "",
+        "Graphics": "NVIDIA GTX 970 or AMD Radeon R9 290"
+      },
+      "recommendedSysReq": {
+        "OS": "64-bit processor and operating system",
+        "Processor": "Intel Core i7 or AMD Ryzen 7",
+        "Memory": "16GB RAM",
+        "Storage": "40GB SSD",
+        "DirectX": "",
+        "Graphics": "NVIDIA GTX 1070 or AMD Radeon RX Vega 56"
+      },
+      "languagesSupported": "AUDIO: EnglishTEXT: Chinese - Simplified, Chinese - Traditional, English, French, German, Italian, Japanese, Korean, Portuguese, Portuguese - Brazil, Russian, Spanish - Spain, Spanish - Latin America"
     },
     {
       "id": 3,
-      "title": "Angular 4",
-      "releaseDate": "March 23, 2017"
-    },
-    {
-      "id": 4,
-      "title": "Angular 5",
-      "releaseDate": "November 1, 2017"
-    },
-    {
-      "id": 5,
-      "title": "Angular 6",
-      "releaseDate": "May 4th, 2018"
-    },
-    {
-      "id": 6,
-      "title": "Angular 7",
-      "releaseDate": "October 18, 2018"
-    },
-    {
-      "id": 6,
-      "title": "Angular 8",
-      "releaseDate": "May 28, 2019"
-    }
-  ],
-  "products": [
-    {
-      "id": 3,
-      "name": "Awesome Soft Hat",
-      "description": "Hic ea sint alias eum quis aut aut. Rerum animi sed.",
-      "price": "400.00",
-      "imageUrl": "https://source.unsplash.com/1600x900/?product",
-      "quantity": 51737
-    },
-    {
-      "id": 4,
-      "name": "Licensed Wooden Sausages",
-      "description": "Aut ullam voluptatem dignissimos rerum earum illum error. Quia fuga totam vero quisquam et delectus suscipit quaerat.",
-      "price": "708.00",
-      "imageUrl": "https://source.unsplash.com/1600x900/?product",
-      "quantity": 37450
-    },
-    {
-      "id": 5,
-      "name": "Intelligent Frozen Car",
-      "description": "Rerum adipisci neque voluptatem sed voluptatem a eum. Id laudantium quaerat voluptatem.",
-      "price": "773.00",
-      "imageUrl": "https://source.unsplash.com/1600x900/?product",
-      "quantity": 25563
-    },
-    {
-      "id": 6,
-      "name": "Incredible Rubber Gloves",
-      "description": "Facilis quae aut sed nemo iusto excepturi nulla. Rerum optio velit fugit.",
-      "price": "535.00",
-      "imageUrl": "https://source.unsplash.com/1600x900/?product",
-      "quantity": 24475
-    },
-    {
-      "id": 7,
-      "name": "Tasty Wooden Computer",
-      "description": "Saepe fugit impedit aperiam. Aut dolorem nesciunt necessitatibus reiciendis iure est expedita ad.",
-      "price": "718.00",
-      "imageUrl": "https://source.unsplash.com/1600x900/?product",
-      "quantity": 66668
-    },
-    {
-      "id": 8,
-      "name": "Intelligent Soft Pants",
-      "description": "Non porro quisquam ut nam ut sit omnis asperiores nostrum. Corporis excepturi sit eum autem animi dignissimos.",
-      "price": "391.00",
-      "imageUrl": "https://source.unsplash.com/1600x900/?product",
-      "quantity": 4050
-    },
-    {
-      "id": 9,
-      "name": "Gorgeous Wooden Gloves",
-      "description": "Est animi praesentium culpa. Cum vel debitis ut beatae quaerat quibusdam assumenda quia.",
-      "price": "908.00",
-      "imageUrl": "https://source.unsplash.com/1600x900/?product",
-      "quantity": 88935
-    },
-    {
-      "id": 10,
-      "name": "Handcrafted Fresh Fish",
-      "description": "Eos neque nihil nihil qui et. Beatae ipsam quia voluptatibus quo qui dolores.",
-      "price": "457.00",
-      "imageUrl": "https://source.unsplash.com/1600x900/?product",
-      "quantity": 76400
+      "name": "SnowRunner",
+      "description": "Get ready for the next-generation off-road experience! Drive powerful vehicles and overcome extreme open environments to complete dozens of challenging missions solo or with up to 3 friends!",
+      "price": "39.99",
+      "imageUrl": "https://cdn1.epicgames.com/2744acda6a2e493e9894b389b6564df7/offer/Diesel_productv2_snowrunner_home_SnowRunner_EpicGames_PortraitImage_860x1148-860x1148-bdf591a23e5a348671dc2a77465d0ba6c5871d68-860x1148-5a5adeae2140a3f0b5586750f70bf8e2-860x1148-5a5adeae2140a3f0b5586750f70bf8e2.jpg?h=854&resize=1&w=640",
+      "quantity": 1,
+      "embed": "",
+      "developer": "Saber Interactive",
+      "publisher": "Focus Home Interactive",
+      "releaseDate": "Apr 28, 2020",
+      "tags": [
+        "Simulation"
+      ],
+      "rating": "–",
+      "platform": [
+        "Windows"
+      ],
+      "detailedDescription": [
+        {
+          "paragraphName": "SnowRunner",
+          "paragraphDetails": "IGN - \"addictive, deep and rewarding\" 8/10"
+        },
+        {
+          "paragraphName": "",
+          "paragraphDetails": "PC Games N - \"Essential purchase\" 8/10"
+        },
+        {
+          "paragraphName": "",
+          "paragraphDetails": "Top Gear - \"will have you punching the air in grim satisfaction\""
+        },
+        {
+          "paragraphName": "",
+          "paragraphDetails": "Get ready for the next-generation off-road experience!"
+        },
+        {
+          "paragraphName": "",
+          "paragraphDetails": "SnowRunner puts you in the driver’s seat of powerful vehicles as you conquer extreme open environments with the most advanced terrain simulation ever. Drive 40 vehicles from brands such as Ford, Chevrolet, and Freightliner as you leave your mark on an untamed open world."
+        },
+        {
+          "paragraphName": "",
+          "paragraphDetails": "Overcome mud, torrential waters, snow, and frozen lakes while taking on perilous contracts and missions. Expand and customize your fleet with many upgrades and accessories including an exhaust snorkel for heavy waters or chain tires to battle the snow."
+        },
+        {
+          "paragraphName": "",
+          "paragraphDetails": "Ride solo or with other players in 4-player co-operative and expand your SnowRunner experience with community-created mods!"
+        }
+      ],
+      "detailedDescriptionImagesUrls": [
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fsnowrunner%2Fhome%2FSnowRunner_Screenshot_01_nologo-1920x1080-53d86bf87615b553f7fc071e1fe42aa7837b59af.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fsnowrunner%2Fhome%2FSnowRunner_screenshot_02_nologo-1920x1080-377785099067d95f6bc2aea2b4d52d2ea697c945.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fsnowrunner%2Fhome%2FSnowRunner_Screenshot_03_nologo-1920x1080-4b2a0b922c126a679339b433fa89f817f7fedb39.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fsnowrunner%2Fhome%2FSnowRunner_Screenshot_04_nologo-1920x1080-16a97e5ac52c9ded407d7c4ab5680bb0c22f2471.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fsnowrunner%2Fhome%2FSnowRunner_screenshot_05_nologo-1920x1080-686aaaa211dd90004ce5e988ebeb826e0f737a0c.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fsnowrunner%2Fhome%2FSnowRunner_screenshot_06_nologo-1920x1080-d404dd821eadd50cd30c5a2381f885624bccf5ba.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fsnowrunner%2Fhome%2FSnowRunner_screenshot_07_nologo-1920x1080-1e3fe0b26f39d8a4002d2a6921f64c036a386f5f.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fsnowrunner%2Fhome%2FSnowRunner_screenshot_08_nologo-1920x1080-0b26cbb69ac727f0e237ed9789774648be6bad54.jpg"
+        }
+      ],
+      "socialLinks": {
+        "instagram": "",
+        "gamePage": "",
+        "discord": "",
+        "facebook": "",
+        "twitter": ""
+      },
+      "minimumSysReq": {
+        "OS": "Windows 7/8/10 (64-bit)",
+        "Processor": "Intel i3-4130 3.4 GHz / AMD Ryzen 3 2200U 3.4 GHz",
+        "Memory": "8 GB",
+        "Storage": "2 GB, GeForce GTX 660 / Radeon R9 270",
+        "DirectX": "Version 11",
+        "Graphics": "20 GB"
+      },
+      "recommendedSysReq": {
+        "OS": "Windows 7/8/10 (64-bit)",
+        "Processor": "Intel i7-8700 3.2 GHz / AMD Ryzen 7 2700 3.2 GHz",
+        "Memory": "16 GB",
+        "Storage": "4 GB, GeForce GTX 970 / Radeon RX 580",
+        "DirectX": "Version 11",
+        "Graphics": "20 GB"
+      },
+      "languagesSupported": "English, French, German, Italian, Spanish, Russian, Polish, Portuguese-Brazilian, Simplified Chinese,Traditional Chinese, Czech"
     }
   ]
 }

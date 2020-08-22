@@ -1,65 +1,222 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center text-white">
     <div class="col-8 mt-4">
         <h4>Add Product</h4>
-        <form #f="ngForm"
-              (ngSubmit)="onSubmit(f)">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
             <div class="form-group">
                 <label for="productName">Product Name</label>
-                <input type="text"
-                       ngModel
-                       required
-                       name="name"
-                       class="form-control"
-                       id="productName"
-                       placeholder="Name">
+                <input type="text" ngModel required name="name" class="form-control" id="productName"
+                    placeholder="Name">
             </div>
             <div class="mb-3 form-group">
                 <label for="productDescription">Description</label>
-                <textarea class="form-control"
-                          ngModel
-                          name="description"
-                          class="form-control"
-                          id="productDescription"
-                          placeholder="Product Description"></textarea>
+                <textarea class="form-control" ngModel name="description" class="form-control" id="productDescription"
+                    placeholder="Product Description"></textarea>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="productPrice">Price</label>
-                    <input type="text"
-                           name="price"
-                           ngModel
-                           required
-                           class="form-control"
-                           id="productPrice"
-                           placeholder="Example: 25.00">
+                    <input type="text" name="price" ngModel required class="form-control" id="productPrice"
+                        placeholder="Example: 25.00">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="productQuantity">Quantity</label>
-                    <input type="number"
-                           name="quantity"
-                           required
-                           ngModel
-                           class="form-control"
-                           id="productQuantity"
-                           placeholder="Example: 100">
+                    <input type="number" name="quantity" ngModel class="form-control" id="productQuantity"
+                        placeholder="Example: 100">
                 </div>
             </div>
             <div class="form-group">
                 <label for="productImageUrl">Image Url</label>
-                <input type="text"
-                       name="imageUrl"
-                       ngModel
-                       required
-                       class="form-control"
-                       id="productImageUrl"
-                       placeholder="Example: https://source.unsplash.com/1600x900/?product">
+                <input type="text" name="imageUrl" ngModel required class="form-control" id="productImageUrl"
+                    placeholder="Example: https://source.unsplash.com/1600x900/?product">
             </div>
-            <button class="btn btn-primary m-1"
-                    [routerLink]="['/product/list']"><i class="fas fa-arrow-left"></i> Back To List</button>
-            <button class="btn btn-success m-1"
-                    type="submit"
-                    [disabled]="f.invalid">Add Product <i class="fas fa-plus"></i></button>
+            <div class="mb-3 form-group">
+                <label for="productEmbed">Embed code</label>
+                <textarea class="form-control" ngModel name="embed" class="form-control" id="productEmbed"
+                    placeholder="Embed code..."></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="productDeveloper">Developer</label>
+                    <input type="text" name="developer" ngModel required class="form-control" id="productDeveloper"
+                        placeholder="Example: One More Level">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="productPublisher">Publisher</label>
+                    <input type="text" name="publisher" ngModel class="form-control" id="productPublisher"
+                        placeholder="Example: Techland">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="productReleaseDate">Release date</label>
+                    <input type="text" name="releaseDate" ngModel required class="form-control" id="productReleaseDate"
+                        placeholder="Example: Aug 20, 2020">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="productTags">Tags</label>
+                    <input type="text" name="tags" ngModel class="form-control" id="productTags"
+                        placeholder="Example: Action, Indie, Rouge-Like">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="productRating">Rating</label>
+                    <input type="text" name="rating" ngModel required class="form-control" id="productRating"
+                        placeholder="Example: - (no rating) | 8.5">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="productPlatform">Platform</label>
+                    <input type="text" name="platform" ngModel class="form-control" id="productPlatform"
+                        placeholder="Example: Windows">
+                </div>
+            </div>
         </form>
+        <pre>{{ descriptions | json }}</pre>
+        <div *ngIf="descriptions"> Detailed description
+            <div class="row" *ngFor="let description of descriptions; let i = index">
+                <div class="col-md-6 mt-2">
+                    <label for="productParagraphName">Paragraph name</label>
+                    <input type="text" [(ngModel)]="descriptions[i].paragraphName" class="form-control"
+                        placeholder="Paragraph name">
+                </div>
+                <div class="col-md-6 mt-2">
+                    <label for="productParagraphDetails">Paragraph details</label>
+                    <input type="text" [(ngModel)]="descriptions[i].paragraphDetails" class="form-control"
+                        placeholder="Paragraph details">
+                </div>
+            </div>
+            <div class="row ml-1 mt-2 mb-2">
+                <button class="btn btn-success" (click)="addDescription()"><svg width="1em" height="1em"
+                        viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
+                        <path fill-rule="evenodd"
+                            d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
+                    </svg> Add description</button>
+                <button class="btn btn-danger ml-1" (click)="removeDescription()"><svg width="1em" height="1em"
+                        viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                        <path fill-rule="evenodd"
+                            d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+                    </svg> Remove description</button>
+            </div>
+        </div>
 
+        <pre>{{ detailedDescriptionImagesUrls | json }}</pre>
+        <div *ngIf="detailedDescriptionImagesUrls"> Detailed description image URLs
+            <div class="row" *ngFor="let detailedDescriptionImagesUrl of detailedDescriptionImagesUrls; let i = index">
+                <div class="col-md-12 mt-2">
+                    <label for="productDetailedDescriptionImageURL">Image URL</label>
+                    <input type="text" [(ngModel)]="detailedDescriptionImagesUrls[i].imageURL" class="form-control"
+                        placeholder="Image URL...">
+                </div>
+            </div>
+            <div class="row ml-1 mt-2 mb-2">
+                <button class="btn btn-success" (click)="addImageURL()"><svg width="1em" height="1em"
+                        viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
+                        <path fill-rule="evenodd"
+                            d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
+                    </svg> Add image</button>
+                <button class="btn btn-danger ml-1" (click)="removeImageURL()"><svg width="1em" height="1em"
+                        viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                        <path fill-rule="evenodd"
+                            d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+                    </svg> Remove image</button>
+            </div>
+        </div>
+
+        <pre>{{ socialLinks | json }}</pre>
+        <div class="form-group">
+            <label for="productSocialLinks">Social links (optional)</label>
+            <div class="col-md-12 mt-2">
+                <label>Game page</label>
+                <input type="text" [(ngModel)]="socialLinks.gamePage" class="form-control"
+                    placeholder="Game page link...">
+            </div>
+            <div class="col-md-12 mt-2">
+                <label>Instagram</label>
+                <input type="text" [(ngModel)]="socialLinks.instagram" class="form-control"
+                    placeholder="Instagram link...">
+            </div>
+            <div class="col-md-12 mt-2">
+                <label>Discord</label>
+                <input type="text" [(ngModel)]="socialLinks.discord" class="form-control" placeholder="Discord link...">
+            </div>
+            <div class="col-md-12 mt-2">
+                <label>Facebook</label>
+                <input type="text" [(ngModel)]="socialLinks.facebook" class="form-control"
+                    placeholder="Facebook link...">
+            </div>
+            <div class="col-md-12 mt-2">
+                <label>Twitter</label>
+                <input type="text" [(ngModel)]="socialLinks.twitter" class="form-control" placeholder="Twitter link...">
+            </div>
+        </div>
+        <pre>{{ minSysReq | json }}</pre>
+        <pre>{{ recSysReq | json }}</pre>
+        <div class="row">
+            <div class="form-group col-md-6"><label>Minimal system requirements</label>
+                <div class="mt-2">
+                    <label>OS</label>
+                    <input type="text" [(ngModel)]="minSysReq.OS" class="form-control mt-1" placeholder="OS...">
+                    <label>Procesor</label>
+                    <input type="text" [(ngModel)]="minSysReq.Processor" class="form-control"
+                        placeholder="Processor...">
+                    <label>Memory</label>
+                    <input type="text" [(ngModel)]="minSysReq.Memory" class="form-control" placeholder="Memory...">
+                    <label>Storage</label>
+                    <input type="text" [(ngModel)]="minSysReq.Storage" class="form-control" placeholder="Storage...">
+                    <label>Direct X</label>
+                    <input type="text" [(ngModel)]="minSysReq.DirectX" class="form-control" placeholder="Direct X...">
+                    <label>Graphics</label>
+                    <input type="text" [(ngModel)]="minSysReq.Graphics" class="form-control" placeholder="Graphics...">
+                </div>
+            </div>
+            <div class="form-group col-md-6"><label>Recommended system requirements</label>
+                <div class="mt-2">
+                    <label>OS</label>
+                    <input type="text" [(ngModel)]="recSysReq.OS" class="form-control mt-1" placeholder="OS...">
+                    <label>Procesor</label>
+                    <input type="text" [(ngModel)]="recSysReq.Processor" class="form-control"
+                        placeholder="Processor...">
+                    <label>Memory</label>
+                    <input type="text" [(ngModel)]="recSysReq.Memory" class="form-control" placeholder="Memory...">
+                    <label>Storage</label>
+                    <input type="text" [(ngModel)]="recSysReq.Storage" class="form-control" placeholder="Storage...">
+                    <label>Direct X</label>
+                    <input type="text" [(ngModel)]="recSysReq.DirectX" class="form-control" placeholder="Direct X...">
+                    <label>Graphics</label>
+                    <input type="text" [(ngModel)]="recSysReq.Graphics" class="form-control" placeholder="Graphics...">
+                </div>
+            </div>
+        </div>
+        <pre>{{ languages | json }}</pre>
+        <div class="row">
+            <label>Languages</label>
+            <input type="text" [(ngModel)]="languages" class="form-control" placeholder="Languages...">
+        </div>
+        <div class="row ml-1 mt-5 mb-2 w-100">
+            <button class="btn btn-primary" [routerLink]="['/product/list']"><svg width="1em" height="1em"
+                    viewBox="0 0 16 16" class="bi bi-backspace" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M6.603 2h7.08a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-7.08a1 1 0 0 1-.76-.35L1 8l4.844-5.65A1 1 0 0 1 6.603 2zm7.08-1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08z" />
+                    <path fill-rule="evenodd"
+                        d="M5.83 5.146a.5.5 0 0 0 0 .708l5 5a.5.5 0 0 0 .707-.708l-5-5a.5.5 0 0 0-.708 0z" />
+                    <path fill-rule="evenodd"
+                        d="M11.537 5.146a.5.5 0 0 1 0 .708l-5 5a.5.5 0 0 1-.708-.708l5-5a.5.5 0 0 1 .707 0z" />
+                </svg> Back
+                To List</button>
+            <button class="btn btn-success ml-auto" type="button" [disabled]="f.invalid"
+                (click)="f.ngSubmit.emit()"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
+                    <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
+                </svg> Add Product</button>
+        </div>
     </div>
-</div>

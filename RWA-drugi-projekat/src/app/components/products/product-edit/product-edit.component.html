@@ -1,66 +1,239 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center text-white">
     <div class="col-8 mt-4">
         <h4>Edit Product</h4>
-        <form #f="ngForm"
-              (ngSubmit)="onSubmit()">
+        <form #f="ngForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="productName">Product Name</label>
-                <input type="text"
-                       class="form-control"
-                       name="name"
-                       required
-                       [(ngModel)]="model.name"
-                       id="productName"
-                       placeholder="Name">
+                <input type="text" class="form-control" name="name" required [(ngModel)]="model.name" id="productName"
+                    placeholder="Name">
             </div>
             <div class="mb-3 form-group">
                 <label for="productDescription">Description</label>
-                <textarea class="form-control"
-                          id="productDescription"
-                          name="description"
-                          required
-                          [(ngModel)]="model.description"
-                          placeholder="Product Description"></textarea>
+                <textarea class="form-control" id="productDescription" name="description" required
+                    [(ngModel)]="model.description" placeholder="Product Description"></textarea>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="productPrice">Price</label>
-                    <input type="text"
-                           class="form-control"
-                           name="price"
-                           required
-                           [(ngModel)]="model.price"
-                           id="productPrice"
-                           placeholder="Example: $25.00">
+                    <input type="text" class="form-control" name="price" required [(ngModel)]="model.price"
+                        id="productPrice" placeholder="Example: $25.00">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="productQuantity">Quantity</label>
-                    <input type="number"
-                           class="form-control"
-                           name="quantity"
-                           required
-                           [(ngModel)]="model.quantity"
-                           id="productQuantity"
-                           placeholder="Example: 100">
+                    <input type="number" class="form-control" name="quantity" required [(ngModel)]="model.quantity"
+                        id="productQuantity" placeholder="Example: 100">
                 </div>
             </div>
             <div class="form-group">
                 <label for="productImageUrl">Image Url</label>
-                <input type="text"
-                       class="form-control"
-                       id="productImageUrl"
-                       required
-                       name="imageUrl"
-                       [(ngModel)]="model.imageUrl"
-                       placeholder="Example: https://source.unsplash.com/1600x900/?product">
+                <input type="text" class="form-control" id="productImageUrl" required name="imageUrl"
+                    [(ngModel)]="model.imageUrl" placeholder="Example: https://source.unsplash.com/1600x900/?product">
             </div>
-            <button class="btn btn-primary m-1"
-                    [routerLink]="['/product/list']"
-                    type="submit"><i class="fas fa-arrow-left"></i> Back To List</button>
-            <button class="btn btn-warning m-1"
-                    type="submit"
-                    [disabled]="f.invalid">Edit Product <i class="fas fa-edit"></i></button>
+            <!--<button class="btn btn-primary m-1" [routerLink]="['/product/list']" type="submit"><i
+                    class="fas fa-arrow-left"></i> Back To List</button>
+            <button class="btn btn-warning m-1" type="submit" [disabled]="f.invalid">Edit Product <i
+                    class="fas fa-edit"></i></button>-->
+            <div class="mb-3 form-group">
+                <label for="productEmbed">Embed code</label>
+                <textarea class="form-control" [(ngModel)]="model.embed" name="embed" class="form-control"
+                    id="productEmbedEdit"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="productDeveloper">Developer</label>
+                    <input type="text" name="developer" [(ngModel)]="model.developer" required class="form-control"
+                        id="productDeveloperEdit">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="productPublisher">Publisher</label>
+                    <input type="text" name="publisher" [(ngModel)]="model.publisher" class="form-control"
+                        id="productPublisherEdit">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="productReleaseDate">Release date</label>
+                    <input type="text" name="releaseDate" [(ngModel)]="model.releaseDate" required class="form-control"
+                        id="productReleaseDateEdit">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="productTags">Tags</label>
+                    <input type="text" name="tags" [(ngModel)]="model.tags" class="form-control" id="productTagsEdit">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="productRating">Rating</label>
+                    <input type="text" name="rating" [(ngModel)]="model.rating" required class="form-control"
+                        id="productRatingEdit">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="productPlatform">Platform</label>
+                    <input type="text" name="platform" [(ngModel)]="model.platform" class="form-control"
+                        id="productPlatformEdit">
+                </div>
+            </div>
         </form>
+        <pre>{{ model.detailedDescription | json }}</pre>
+        <div> Detailed description
+            <div class="row" *ngFor="let description of model.detailedDescription; let i = index">
+                <div class="col-md-6 mt-2">
+                    <label for="productParagraphName">Paragraph name</label>
+                    <input type="text" [(ngModel)]="model.detailedDescription[i].paragraphName" name="model.detailedDescription[i].paragraphName" class="form-control"
+                        placeholder="Paragraph name...">
+                </div>
+                <div class="col-md-6 mt-2">
+                    <label for="productParagraphDetails">Paragraph details</label>
+                    <input type="text" [(ngModel)]="model.detailedDescription[i].paragraphDetails" class="form-control"
+                        placeholder="Paragraph details...">
+                </div>
+            </div>
+            <div class="row ml-1 mt-2 mb-2">
+                <button class="btn btn-success" (click)="addDescription()"><svg width="1em" height="1em"
+                        viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
+                        <path fill-rule="evenodd"
+                            d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
+                    </svg> Add description</button>
+                <button class="btn btn-danger ml-1" (click)="removeDescription()"><svg width="1em" height="1em"
+                        viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                        <path fill-rule="evenodd"
+                            d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+                    </svg> Remove description</button>
+            </div>
+        </div>
 
+        <pre>{{ model.detailedDescriptionImagesUrls | json }}</pre>
+        <div> Detailed description image URLs
+            <div class="row"
+                *ngFor="let detailedDescriptionImagesUrl of model.detailedDescriptionImagesUrls; let i = index">
+                <div class="col-md-12 mt-2">
+                    <label for="productDetailedDescriptionImageURL">Image URL</label>
+                    <input type="text" [(ngModel)]="model.detailedDescriptionImagesUrls[i].imageURL"
+                        class="form-control" placeholder="Image URL...">
+                </div>
+            </div>
+            <div class="row ml-1 mt-2 mb-2">
+                <button class="btn btn-success" (click)="addImageURL()"><svg width="1em" height="1em"
+                        viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
+                        <path fill-rule="evenodd"
+                            d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
+                    </svg> Add image</button>
+                <button class="btn btn-danger ml-1" (click)="removeImageURL()"><svg width="1em" height="1em"
+                        viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                        <path fill-rule="evenodd"
+                            d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+                    </svg> Remove image</button>
+            </div>
+        </div>
+
+        <pre>{{ model.socialLinks | json }}</pre>
+        <div class="form-group">
+            <label for="productSocialLinks">Social links (optional)</label>
+            <div class="col-md-12 mt-2">
+                <label>Game page</label>
+                <input type="text" [(ngModel)]="model.socialLinks.gamePage" class="form-control"
+                    placeholder="Game page link...">
+            </div>
+            <div class="col-md-12 mt-2">
+                <label>Instagram</label>
+                <input type="text" [(ngModel)]="model.socialLinks.instagram" class="form-control"
+                    placeholder="Instagram link...">
+            </div>
+            <div class="col-md-12 mt-2">
+                <label>Discord</label>
+                <input type="text" [(ngModel)]="model.socialLinks.discord" class="form-control"
+                    placeholder="Discord link...">
+            </div>
+            <div class="col-md-12 mt-2">
+                <label>Facebook</label>
+                <input type="text" [(ngModel)]="model.socialLinks.facebook" class="form-control"
+                    placeholder="Facebook link...">
+            </div>
+            <div class="col-md-12 mt-2">
+                <label>Twitter</label>
+                <input type="text" [(ngModel)]="model.socialLinks.twitter" class="form-control"
+                    placeholder="Twitter link...">
+            </div>
+        </div>
+        <pre>{{ model.minimumSysReq | json }}</pre>
+        <pre>{{ model.recommendedSysReq | json }}</pre>
+        <div class="row">
+            <div class="form-group col-md-6"><label>Minimal system requirements</label>
+                <div class="mt-2">
+                    <label>OS</label>
+                    <input type="text" [(ngModel)]="model.minimumSysReq.OS" class="form-control mt-1"
+                        placeholder="OS...">
+                    <label>Procesor</label>
+                    <input type="text" [(ngModel)]="model.minimumSysReq.Processor" class="form-control"
+                        placeholder="Processor...">
+                    <label>Memory</label>
+                    <input type="text" [(ngModel)]="model.minimumSysReq.Memory" class="form-control"
+                        placeholder="Memory...">
+                    <label>Storage</label>
+                    <input type="text" [(ngModel)]="model.minimumSysReq.Storage" class="form-control"
+                        placeholder="Storage...">
+                    <label>Direct X</label>
+                    <input type="text" [(ngModel)]="model.minimumSysReq.DirectX" class="form-control"
+                        placeholder="Direct X...">
+                    <label>Graphics</label>
+                    <input type="text" [(ngModel)]="model.minimumSysReq.Graphics" class="form-control"
+                        placeholder="Graphics...">
+                </div>
+            </div>
+            <div class="form-group col-md-6"><label>Recommended system requirements</label>
+                <div class="mt-2">
+                    <label>OS</label>
+                    <input type="text" [(ngModel)]="model.recommendedSysReq.OS" class="form-control mt-1"
+                        placeholder="OS...">
+                    <label>Procesor</label>
+                    <input type="text" [(ngModel)]="model.recommendedSysReq.Processor" class="form-control"
+                        placeholder="Processor...">
+                    <label>Memory</label>
+                    <input type="text" [(ngModel)]="model.recommendedSysReq.Memory" class="form-control"
+                        placeholder="Memory...">
+                    <label>Storage</label>
+                    <input type="text" [(ngModel)]="model.recommendedSysReq.Storage" class="form-control"
+                        placeholder="Storage...">
+                    <label>Direct X</label>
+                    <input type="text" [(ngModel)]="model.recommendedSysReq.DirectX" class="form-control"
+                        placeholder="Direct X...">
+                    <label>Graphics</label>
+                    <input type="text" [(ngModel)]="model.recommendedSysReq.Graphics" class="form-control"
+                        placeholder="Graphics...">
+                </div>
+            </div>
+        </div>
+        <pre>{{ model.languagesSupported | json }}</pre>
+        <div class="row">
+            <label>Languages</label>
+            <input type="text" [(ngModel)]="model.languagesSupported" class="form-control" placeholder="Languages...">
+        </div>
+        <div class="row ml-1 mt-5 mb-2 w-100">
+            <button class="btn btn-primary" [routerLink]="['/product/list']"><svg width="1em" height="1em"
+                    viewBox="0 0 16 16" class="bi bi-backspace" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M6.603 2h7.08a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-7.08a1 1 0 0 1-.76-.35L1 8l4.844-5.65A1 1 0 0 1 6.603 2zm7.08-1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08z" />
+                    <path fill-rule="evenodd"
+                        d="M5.83 5.146a.5.5 0 0 0 0 .708l5 5a.5.5 0 0 0 .707-.708l-5-5a.5.5 0 0 0-.708 0z" />
+                    <path fill-rule="evenodd"
+                        d="M11.537 5.146a.5.5 0 0 1 0 .708l-5 5a.5.5 0 0 1-.708-.708l5-5a.5.5 0 0 1 .707 0z" />
+                </svg> Back
+                To List</button>
+            <button class="btn btn-success ml-auto" type="button" [disabled]="f.invalid"
+                (click)="f.ngSubmit.emit()"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z" />
+                    <path fill-rule="evenodd"
+                        d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z" />
+                </svg> Edit Product</button>
+        </div>
     </div>
-</div>

@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { switchMap, map } from "rxjs/operators";
 import { ProductService } from "../../../services/product.service";
 import { Observable } from "rxjs";
-import { Product } from "../../../models/product";
+import { Product } from "../../../models/product/product";
 import { Store, select } from '@ngrx/store';
 import { ProductState } from 'src/app/products/store/product.reducer';
 import { selectedProduct } from 'src/app/products/store/product.selectors';

@@ -18,6 +18,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { AppEffects } from './app.effects';
       }
     }),
       StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-      EffectsModule.forRoot([AppEffects, ])
+      EffectsModule.forRoot([AppEffects, ]),
+      FontAwesomeModule
   ],
   declarations: [
       AppComponent,

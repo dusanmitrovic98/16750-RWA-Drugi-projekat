@@ -1,0 +1,55 @@
+{
+      "id": 0,
+      "name": "",
+      "description": "",
+      "price": "",
+      "imageUrl": "",
+      "quantity": 1,
+      "embed": "",
+      "developer": "",
+      "publisher": "",
+      "releaseDate": "",
+      "tags": [],
+      "rating": "",
+      "platform": [],
+      "detailedDescription": [
+        {
+          "paragraphName": "",
+          "paragraphDetails": ""
+        }
+      ],
+      "detailedDescriptionImagesUrls": [
+        {
+          "imageURL": ""
+        }
+      ],
+      "socialLinks":
+        {
+          "instagram": "",
+          "gamePage": "",
+          "discord": "",
+          "facebook": "",
+          "twitter": ""
+        },
+      "minimumSysReq": 
+        {
+          "OS": "",
+          "Processor": "",
+          "Memory": "",
+          "Storage": "",
+          "Direct X": "",
+          "Graphics": ""
+        }
+      ,
+      "recommendedSysReq": 
+        {
+          "OS": "",
+          "Processor": "",
+          "Memory": "",
+          "Storage": "",
+          "DirectX": "",
+          "Graphics": ""
+        }
+      ,
+      "languagesSupported": ""
+    }
