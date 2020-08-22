@@ -2,13 +2,14 @@ import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../../../services/product.service";
 import { Product } from "../../../models/product/product";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ProductState } from 'src/app/products/store/product.reducer';
 import { Store, select } from '@ngrx/store';
-import { loadProduct, updateProduct } from 'src/app/products/store/product.actions';
-import { selectedProduct } from 'src/app/products/store/product.selectors';
-import { Update } from '@ngrx/entity';
 import { ImageURL } from 'src/app/models/product/product-elements/image-url';
 import { Description } from 'src/app/models/product/product-elements/description';
+import { State } from 'src/app/store/reducers/root.reducer';
+import { Update } from '@ngrx/entity';
+import { updateProduct, loadProduct } from 'src/app/store/actions/product.actions';
+import { getProductState, selectAllProducts } from 'src/app/store/adapters/product.adapter';
+import { selectAllUsers } from 'src/app/store/adapters/user.adapter';
 
 @Component({
   selector: "app-product-edit",
@@ -20,16 +21,20 @@ export class ProductEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private service: ProductService,
-    private store: Store<ProductState>
+    private store: Store<State>
   ) {}
   model: any = {};
+  productId: string = this.route.snapshot.paramMap.get("id");
 
   ngOnInit() {
+    console.clear();
+    console.log(this.productId);
     this.store.dispatch(
-      loadProduct({id: this.route.snapshot.paramMap.get("id")})
-      );
-    this.store.pipe(select(selectedProduct)).subscribe(product => {
-      this.model = Object.assign(new Product(), product);
+      new loadProduct(this.productId)
+    )
+    this.store.pipe(select(selectAllProducts)).subscribe(products => {
+      this.model = Object.assign(new Product(), products[Number(this.productId)-1]);
+      console.log(this.model)
     });
   }
 
@@ -38,7 +43,7 @@ export class ProductEditComponent implements OnInit {
       id: this.model.id,
       changes: this.model
     }
-    this.store.dispatch(updateProduct({product: update}))
+    this.store.dispatch(new updateProduct(update))
   }
 
   addDescription() {

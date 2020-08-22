@@ -13,12 +13,15 @@ import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { rootReducer } from './store/reducers/root.reducer';
+import { ProductEffects } from './store/effects/product.effects';
+import { UserEffects } from './store/effects/user.effects';
 
 @NgModule({
   imports: [
@@ -27,15 +30,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
       ReactiveFormsModule,
       HttpClientModule,
       AppRoutingModule,
-      StoreModule.forRoot(reducers, {
+      EffectsModule.forRoot([AppEffects, ProductEffects, UserEffects]),
+      StoreModule.forRoot(rootReducer, {
       metaReducers,
       runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true
+        strictStateImmutability: false,
+        strictActionImmutability: false,
       }
     }),
       StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-      EffectsModule.forRoot([AppEffects, ]),
       FontAwesomeModule
   ],
   declarations: [

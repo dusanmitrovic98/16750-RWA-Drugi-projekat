@@ -1,14 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NgForm, FormBuilder } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { ProductService } from '../../../services/product.service';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { ProductState } from 'src/app/products/store/product.reducer';
-import { addProduct } from 'src/app/products/store/product.actions';
 import { Description } from 'src/app/models/product/product-elements/description';
 import { ImageURL } from 'src/app/models/product/product-elements/image-url';
 import { SocialLinks } from 'src/app/models/product/product-elements/social-links';
 import { SystemRequirements } from 'src/app/models/product/product-elements/system-requirements';
+import { State } from 'src/app/store/reducers/root.reducer';
+import { addProduct } from 'src/app/store/actions/product.actions';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-add',
@@ -25,7 +25,7 @@ export class ProductAddComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private store: Store<ProductState>
+    private store: Store<State>
   ) {}
 
   ngOnInit() {
@@ -40,7 +40,7 @@ export class ProductAddComponent implements OnInit {
     f.value.minimumSysReq = this.minSysReq;
     f.value.recommendedSysReq = this.recSysReq;
     f.value.languagesSupported = this.languages;
-    this.store.dispatch(addProduct({ product: f.value }));
+    this.store.dispatch(new addProduct( f.value ));
   }
 
   addDescription() {

@@ -1,13 +1,32 @@
 {
-  "products": [
+  "users": [
     {
       "id": 1,
+      "username": "",
+      "password": "",
+      "firstName": "",
+      "lastName": "",
+      "role": "",
+      "token": ""
+    },
+    {
+      "id": 2,
+      "username": "",
+      "password": "",
+      "firstName": "",
+      "lastName": "",
+      "role": "",
+      "token": ""
+    }
+  ],
+  "products": [
+    {
       "name": "God's Trigger",
       "description": "Slay enemies with speed and precision in an over-the-top show of blood and explosions. Play solo or with others, make split-second decisions, dodge bullets, and use weapons and abilities to inflict violence in the most graphic way possible.",
       "price": "14.99",
       "imageUrl": "https://cdn1.epicgames.com/ceaa24233cdb4b678a1cf515e3a912e8/offer/EGS_GodsTrigger_OneMoreLevel_S2-1200x1600-f358d6781c0b38616e6cad865a427f13.jpg?h=854&amp;resize=1&amp;w=640",
       "quantity": 1,
-      "embed": "",
+      "embed": "<iframe width=\"730\" height=\"480\" src=\"https://www.youtube.com/embed/_2nN26GearI\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
       "developer": "One More Level",
       "publisher": "Techland",
       "releaseDate": "Aug 20, 2020",
@@ -16,7 +35,7 @@
       "platform": "Windows",
       "detailedDescription": [
         {
-          "paragraphName": "God's Trigger",
+          "paragraphName": "God's Triggere",
           "paragraphDetails": "God’s Trigger is a power fantasy where you dispatch enemies with speed and precision in a balet of blood and explosions. Burst through a room in seconds killing with one of the many weapons, freely selectable special abilities, environmental hazards, and melee attacks."
         },
         {
@@ -62,16 +81,16 @@
         "DirectX": "11",
         "Graphics": "NVIDIA GeForce GTX 970 4 GB"
       },
-      "languagesSupported": "Audio: EnglishText: English, Chinese - Simplified, German, Italian, Polish, Russian, Spanish - Spain, Japanese, Portuguese - Brazil, French"
+      "languagesSupported": "Audio: EnglishText: English, Chinese - Simplified, German, Italian, Polish, Russian, Spanish - Spain, Japanese, Portuguese - Brazil, French",
+      "id": 1
     },
     {
-      "id": 2,
       "name": "Mortal Shell",
       "description": "Mortal Shell is a deep action-RPG that tests your sanity and resilience in a shattered world. Your adversaries spare no mercy, with survival demanding superior awareness and precision. Possess lost warriors, discover hidden sanctums, and face formidable foes.",
       "price": "29.99",
       "imageUrl": "https://cdn1.epicgames.com/ff8c96d781824ba1ae62d18d207fc52e/offer/EGS_MortalShell_ColdSymmetry_S6-1200x1600-10607273626b5c7b4e07dd999d9fcad4.jpg?h=854&resize=1&w=640",
       "quantity": 1,
-      "embed": "",
+      "embed": "<iframe width=\"1048\" height=\"480\" src=\"https://www.youtube.com/embed/r16Dc_jMWzA\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
       "developer": "Cold Symmetry",
       "publisher": "Playstack Ltd",
       "releaseDate": "Aug 18, 2020",
@@ -157,7 +176,8 @@
         "DirectX": "",
         "Graphics": "NVIDIA GTX 1070 or AMD Radeon RX Vega 56"
       },
-      "languagesSupported": "AUDIO: EnglishTEXT: Chinese - Simplified, Chinese - Traditional, English, French, German, Italian, Japanese, Korean, Portuguese, Portuguese - Brazil, Russian, Spanish - Spain, Spanish - Latin America"
+      "languagesSupported": "AUDIO: EnglishTEXT: Chinese - Simplified, Chinese - Traditional, English, French, German, Italian, Japanese, Korean, Portuguese, Portuguese - Brazil, Russian, Spanish - Spain, Spanish - Latin America",
+      "id": 2
     },
     {
       "id": 3,

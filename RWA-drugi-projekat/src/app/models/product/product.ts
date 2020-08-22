@@ -17,11 +17,11 @@ export class Product {
   tags: string[];
   rating: string;
   platform: string;
-  detailedDescription: Description[];
-  detailedDescriptionImagesUrls: ImageURL[];
-  socialLinks: SocialLinks;
-  minimumSysReq: SystemRequirements;
-  recommendedSysReq: SystemRequirements;
+  detailedDescription: any;
+  detailedDescriptionImagesUrls: any;
+  socialLinks: any;
+  minimumSysReq: any;
+  recommendedSysReq: any;
   languagesSupported: string;
 
   constructor(){
