@@ -32,6 +32,8 @@ export class HomeComponent {
             this.userFromApi = user;
         });
         this.products$ = this.store.select(selectAllProducts);
-        console.log(this.products$);
+        this.products$.subscribe(products => {
+                products.reverse();
+        })
     }
 }

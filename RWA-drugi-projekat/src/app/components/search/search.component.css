@@ -1,0 +1,20 @@
+.main-color {
+  background-color: #2a2a2a;
+}
+
+.opacity-8 {
+  opacity: 0.8;
+}
+
+.w-100-h-100 {
+    width: 100% !important;
+    height: 100% !important;  
+}
+
+.list-group {
+  max-height: 250px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  overflow: hidden;
+  overflow-y: scroll;
+}

@@ -53,7 +53,7 @@ export class ProductEffects {
       mergeMap((action) =>
         this.productService.createProduct(action.product).pipe(
           map((product) => ({
-            type: fromProductActions.ProductActionsTypes.LOAD_PRODUCT_SUCCESS,
+            type: fromProductActions.ProductActionsTypes.ADD_PRODUCT_SUCCESS,
             product: product,
           })),
           catchError((error) =>

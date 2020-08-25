@@ -16,12 +16,16 @@ export class AppComponent {
     title: string = 'RWA-drugi-projekat';
     user: User;
     online: any;
+    searchText = '';
+    currentUser: any;
 
     constructor(private router: Router, private accountService: AccountService, private store:Store<State>) {
         this.accountService.user.subscribe(x => this.user = x);
     }
 
     ngOnInit(){
+        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        console.log(this.currentUser);
         createOnline$().subscribe(isOnline => console.log(isOnline));
         this.store.dispatch(new loadProducts());
         this.store.dispatch(new loadUsers());   

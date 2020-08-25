@@ -1,0 +1,77 @@
+<div class="container mt-5 text-white border-bottom border-white">
+    <div class="row mb-5">
+        <div class="col-sm-3">
+            <h5>About Game</h5>
+        </div>
+        <div class="col-sm-9">
+            <div class="container-fluid mb-4">
+                <div class="row justify-content-around">
+                    <div class="col-sm-4 b-3">
+                        <div class="container-fluid">
+                            <span class="main-font-color">Developer</span>
+                            <div>{{model.developer}}</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mb-3">
+                        <div class="container-fluid">
+                            <span class="main-font-color">Publisher</span>
+                            <div>{{model.publisher}}</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mb-3">
+                        <div class="container-fluid">
+                            <span class="main-font-color">Release Date</span>
+                            <div>{{model.releaseDate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-around">
+                    <div class="col-sm-4 b-3">
+                        <div class="container-fluid">
+                            <span class="main-font-color">Tags</span>
+                            <div >{{model.tags}}</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mb-3">
+                        <div class="container-fluid">
+                            <span class="main-font-color">Rating</span>
+                            <div>{{model.rating}}</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mb-3">
+                        <div class="container-fluid">
+                            <span class="main-font-color">Platform</span>
+                            <div>{{model.platform}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" *ngFor="let description of model.detailedDescription">
+                <span>{{description.paragraphName}}</span>
+                <div>
+                    <p class="main-font-color">{{description.paragraphDetails}}</p>
+                </div>
+            </div>
+            <div class="main-color" id="accordion">
+                <div class="card">
+                  <div class="card-header main-color" id="headingThree">
+                    <h5 class="mb-0 text-center">
+                      <button class="btn text-white collapsed main-color w-100 h-100" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Show related images
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body main-color">
+                        <div class="container-fluid p-4" *ngFor="let url of model.detailedDescriptionImagesUrls">
+                            <div>
+                                <img class="img-fluid" src="{{url.imageURL}}"/>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

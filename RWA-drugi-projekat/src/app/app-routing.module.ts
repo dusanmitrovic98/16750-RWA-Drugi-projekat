@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AuthGuard } from './helpers/auth.guard';
 import { Role } from './models/role';
+import { UserProfileComponent } from './components/users/user-profile/user-profile.component';
 
 const accountModule = () => import('./components/account/account/account.module').then(x => x.AccountModule);
 const usersModule = () => import('./components/users/users/users.module').then(x => x.UsersModule);
@@ -14,6 +15,11 @@ const routes: Routes = [
     {
         path: '',
         component: HomeComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'user',
+        component: UserProfileComponent,
         canActivate: [AuthGuard]
     },
     {
@@ -27,8 +33,7 @@ const routes: Routes = [
     {
         path: "product",
         loadChildren: productsModule,
-        canActivate: [AuthGuard],
-        data: { roles: [Role.Admin] }
+        canActivate: [AuthGuard]
     },
     { path: '**', redirectTo: '' }
 ];

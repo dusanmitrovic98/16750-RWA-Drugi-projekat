@@ -9,6 +9,8 @@ import { SystemRequirements } from 'src/app/models/product/product-elements/syst
 import { State } from 'src/app/store/reducers/root.reducer';
 import { addProduct } from 'src/app/store/actions/product.actions';
 import { ActivatedRoute } from '@angular/router';
+import { selectAllProducts } from 'src/app/store/adapters/product.adapter';
+import { Product } from 'src/app/models/product/product';
 
 @Component({
   selector: 'app-product-add',
@@ -16,6 +18,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./product-add.component.scss'],
 })
 export class ProductAddComponent implements OnInit {
+  model: any = {};
+  test: string = "test";
+  one: number = 1;
   descriptions: Description[] = new Array<Description>();
   detailedDescriptionImagesUrls: ImageURL[] = new Array<ImageURL>();
   socialLinks: SocialLinks = new SocialLinks();
@@ -31,6 +36,11 @@ export class ProductAddComponent implements OnInit {
   ngOnInit() {
     this.descriptions.push(new Description('', ''));
     this.detailedDescriptionImagesUrls.push(new ImageURL(''));
+    this.store.select(selectAllProducts).subscribe(products => {
+    let product = products.filter(x => x.name === "Mortal Shell");
+    this.model = Object.assign(new Product(), product[0]);
+    console.log(this.model);
+    })
   }
 
   onSubmit(f: NgForm) {

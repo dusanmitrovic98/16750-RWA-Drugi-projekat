@@ -18,10 +18,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { rootReducer } from './store/reducers/root.reducer';
 import { ProductEffects } from './store/effects/product.effects';
 import { UserEffects } from './store/effects/user.effects';
+
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UsersModule } from './components/users/users/users.module';
+import { UserProfileComponent } from './components/users/user-profile/user-profile.component';
 
 @NgModule({
   imports: [
@@ -30,6 +34,7 @@ import { UserEffects } from './store/effects/user.effects';
       ReactiveFormsModule,
       HttpClientModule,
       AppRoutingModule,
+      UsersModule,
       EffectsModule.forRoot([AppEffects, ProductEffects, UserEffects]),
       StoreModule.forRoot(rootReducer, {
       metaReducers,
@@ -39,6 +44,7 @@ import { UserEffects } from './store/effects/user.effects';
       }
     }),
       StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+      MDBBootstrapModule.forRoot(),
       FontAwesomeModule
   ],
   declarations: [
@@ -46,6 +52,9 @@ import { UserEffects } from './store/effects/user.effects';
       HomeComponent,
       AdminComponent,
       AlertComponent,
+      UserProfileComponent
+  ],
+  exports: [
   ],
   providers: [
       { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

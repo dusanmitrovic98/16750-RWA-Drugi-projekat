@@ -7,7 +7,7 @@ import { Role } from './../models/role';
 import { User } from './../models/user';
 
 let userAdmin: User[] = [
-    { id: 1, username: 'admin', password: 'admin', firstName: 'Admin', lastName: 'User', role: Role.Admin },
+    { id: 1, username: 'admin', password: 'admin', firstName: 'Admin', lastName: 'User', role: Role.Admin,  boughtItemsIds: [] },
 ];
 
 
@@ -64,12 +64,16 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 role: user.role,
-                token: `fake-jwt-token.${user.id}`
+                token: `fake-jwt-token.${user.id}`,
+                boughtItemsIds: user.boughtItemsIds
             });
         }
 
         function register() {
             const user = body
+            if(!user.boughtItemIds){
+                user.boughtItemsIds = new Array<number>();
+            }
 
             if (users.find(x => x.username === user.username)) {
                 return error('Username "' + user.username + '" is already taken')

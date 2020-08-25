@@ -2,21 +2,24 @@
   "users": [
     {
       "id": 1,
-      "username": "",
-      "password": "",
-      "firstName": "",
-      "lastName": "",
-      "role": "",
-      "token": ""
+      "username": "admin",
+      "password": "admin",
+      "firstName": "adminName",
+      "lastName": "adminLastName",
+      "role": "Admin",
+      "boughtItemIds": [
+        1,
+        2
+      ]
     },
     {
-      "id": 2,
-      "username": "",
-      "password": "",
-      "firstName": "",
-      "lastName": "",
-      "role": "",
-      "token": ""
+      "firstName": "test",
+      "lastName": "test",
+      "username": "test",
+      "password": "Univerzum@98",
+      "role": "User",
+      "boughtItemsIds": [],
+      "id": 2
     }
   ],
   "products": [
@@ -24,9 +27,10 @@
       "name": "God's Trigger",
       "description": "Slay enemies with speed and precision in an over-the-top show of blood and explosions. Play solo or with others, make split-second decisions, dodge bullets, and use weapons and abilities to inflict violence in the most graphic way possible.",
       "price": "14.99",
+      "logoUrl": "https://cdn2.unrealengine.com/egs-godstrigger-onemorelevel-ic1-400x400-708705137.png?h=270&resize=1&w=480",
       "imageUrl": "https://cdn1.epicgames.com/ceaa24233cdb4b678a1cf515e3a912e8/offer/EGS_GodsTrigger_OneMoreLevel_S2-1200x1600-f358d6781c0b38616e6cad865a427f13.jpg?h=854&amp;resize=1&amp;w=640",
       "quantity": 1,
-      "embed": "<iframe width=\"730\" height=\"480\" src=\"https://www.youtube.com/embed/_2nN26GearI\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+      "embed": "https://www.youtube.com/embed/_2nN26GearI",
       "developer": "One More Level",
       "publisher": "Techland",
       "releaseDate": "Aug 20, 2020",
@@ -50,9 +54,6 @@
       "detailedDescriptionImagesUrls": [
         {
           "imageURL": "https://cdn2.unrealengine.com/egs-godstrigger-onemorelevel-g2-01-1920x1080-708705014.jpg"
-        },
-        {
-          "imageURL": "https://cdn2.unrealengine.com/egs-godstrigger-onemorelevel-g2-02-1920x1080-708705131.jpg"
         },
         {
           "imageURL": "https://cdn2.unrealengine.com/egs-godstrigger-onemorelevel-g2-02-1920x1080-708705131.jpg"
@@ -90,7 +91,7 @@
       "price": "29.99",
       "imageUrl": "https://cdn1.epicgames.com/ff8c96d781824ba1ae62d18d207fc52e/offer/EGS_MortalShell_ColdSymmetry_S6-1200x1600-10607273626b5c7b4e07dd999d9fcad4.jpg?h=854&resize=1&w=640",
       "quantity": 1,
-      "embed": "<iframe width=\"1048\" height=\"480\" src=\"https://www.youtube.com/embed/r16Dc_jMWzA\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+      "embed": "https://www.youtube.com/embed/r16Dc_jMWzA",
       "developer": "Cold Symmetry",
       "publisher": "Playstack Ltd",
       "releaseDate": "Aug 18, 2020",
@@ -154,11 +155,11 @@
         }
       ],
       "socialLinks": {
-        "instagram": "",
-        "gamePage": "",
-        "discord": "",
-        "facebook": "",
-        "twitter": ""
+        "instagram": "https://www.instagram.com/mortalshellgame/",
+        "gamePage": "https://www.mortalshell.com/",
+        "discord": "https://discord.gg/mortalshell",
+        "facebook": "https://www.facebook.com/MortalShellGame/",
+        "twitter": "https://twitter.com/MortalShellGame"
       },
       "minimumSysReq": {
         "OS": "64-bit processor and operating system",
@@ -177,16 +178,17 @@
         "Graphics": "NVIDIA GTX 1070 or AMD Radeon RX Vega 56"
       },
       "languagesSupported": "AUDIO: EnglishTEXT: Chinese - Simplified, Chinese - Traditional, English, French, German, Italian, Japanese, Korean, Portuguese, Portuguese - Brazil, Russian, Spanish - Spain, Spanish - Latin America",
+      "logoUrl": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fmortal-shell%2Fhome%2FEGS_MortalShell_ColdSymmetry_IC5-400x260-422ce18eeeee6210eab496dacd4ad6769eb5f772.png?h=270&resize=1&w=480",
       "id": 2
     },
     {
-      "id": 3,
       "name": "SnowRunner",
       "description": "Get ready for the next-generation off-road experience! Drive powerful vehicles and overcome extreme open environments to complete dozens of challenging missions solo or with up to 3 friends!",
       "price": "39.99",
+      "logoUrl": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fsnowrunner%2Fhome%2FSnowRunner_BaseGame_EpicGames_GameLogo_200x72-200x72-1c01585fbbc14f024f6fd8b1c7b809aa5909fb07.png?h=270&resize=1&w=480",
       "imageUrl": "https://cdn1.epicgames.com/2744acda6a2e493e9894b389b6564df7/offer/Diesel_productv2_snowrunner_home_SnowRunner_EpicGames_PortraitImage_860x1148-860x1148-bdf591a23e5a348671dc2a77465d0ba6c5871d68-860x1148-5a5adeae2140a3f0b5586750f70bf8e2-860x1148-5a5adeae2140a3f0b5586750f70bf8e2.jpg?h=854&resize=1&w=640",
       "quantity": 1,
-      "embed": "",
+      "embed": "https://www.youtube.com/embed/hcFSFjJ2b6o",
       "developer": "Saber Interactive",
       "publisher": "Focus Home Interactive",
       "releaseDate": "Apr 28, 2020",
@@ -276,7 +278,56 @@
         "DirectX": "Version 11",
         "Graphics": "20 GB"
       },
-      "languagesSupported": "English, French, German, Italian, Spanish, Russian, Polish, Portuguese-Brazilian, Simplified Chinese,Traditional Chinese, Czech"
+      "languagesSupported": "English, French, German, Italian, Spanish, Russian, Polish, Portuguese-Brazilian, Simplified Chinese,Traditional Chinese, Czech",
+      "id": 3
+    },
+    {
+      "name": "test",
+      "description": "test",
+      "price": "test",
+      "imageUrl": "https://cdn1.epicgames.com/ff8c96d781824ba1ae62d18d207fc52e/offer/EGS_MortalShell_ColdSymmetry_S6-1200x1600-10607273626b5c7b4e07dd999d9fcad4.jpg?h=854&resize=1&w=640",
+      "embed": "https://www.youtube.com/embed/r16Dc_jMWzA",
+      "developer": "test",
+      "publisher": "test",
+      "releaseDate": "test",
+      "tags": "test",
+      "rating": "test",
+      "platform": "test",
+      "detailedDescription": [
+        {
+          "paragraphName": "",
+          "paragraphDetails": ""
+        }
+      ],
+      "detailedDescriptionImagesUrls": [
+        {
+          "imageURL": ""
+        }
+      ],
+      "socialLinks": {
+        "instagram": "",
+        "gamePage": "",
+        "discord": "",
+        "facebook": "",
+        "twitter": ""
+      },
+      "minimumSysReq": {
+        "OS": "",
+        "Processor": "",
+        "Memory": "",
+        "Storage": "",
+        "DirectX": "",
+        "Graphics": ""
+      },
+      "recommendedSysReq": {
+        "OS": "",
+        "Processor": "",
+        "Memory": "",
+        "Storage": "",
+        "DirectX": "",
+        "Graphics": ""
+      },
+      "id": 4
     }
   ]
 }

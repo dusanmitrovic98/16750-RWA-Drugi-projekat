@@ -3,12 +3,8 @@ import { User } from 'src/app/models/user';
 import { createFeatureSelector } from '@ngrx/store';
 
 export const userAdapter = createEntityAdapter<User>({
-    sortComparer:sortById
+
   });
-  
-  function sortById(e1: User, e2: User) {
-    return e2.id - e1.id
-  }
   
   export interface UserState {
     ids:number[],

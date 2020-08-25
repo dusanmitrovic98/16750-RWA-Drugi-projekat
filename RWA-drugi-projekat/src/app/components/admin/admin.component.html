@@ -1,13 +1,33 @@
-<div class="container">
+<div class="container mb-5">
     <div class="card mt-4 text-white" id="main-admin-card">
-        <h4 class="card-header">Admin</h4>
+        <h4 class="card-header">General</h4>
         <div class="card-body">
-            <p>This page can be accessed <u>only by administrators</u>.</p>
-            <p class="mb-1">All users from secure (admin only) api end point:</p>
             <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
-            <ul *ngIf="users">
-                <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
-            </ul>
+            <div *ngIf="userFromApi">
+                <p>Welcome: {{userFromApi.firstName}} {{userFromApi.lastName}}</p>
+            </div>
+            <p class="mb-1">All users from secure (admin only) api end point:</p>
+            <div class="container">
+                <div class="card mt-4 text-white" id="main-home-card">
+                    <h4 class="card-header">All users</h4>
+                    <div class="card-body">
+                        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+                        <ul *ngIf="users">
+                            <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
+                        </ul>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="container text-white">
+        <div class="card mt-4 text-white" id="main-home-card">
+            <h4 class="card-header">
+                <h1>General options</h1>
+            </h4>
+            <div class="card-body">
+                <button class="btn btn-secondary w-100 p-2" routerLink="/users">Manage Users</button>
+            </div>
         </div>
     </div>
 </div>

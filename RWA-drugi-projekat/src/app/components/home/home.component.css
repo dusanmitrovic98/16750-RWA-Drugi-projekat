@@ -1,3 +1,16 @@
 #main-home-card {
         background-color: #2a2a2a;   
 }
+
+.main-color {
+        background-color: #2a2a2a;   
+}
+
+.list-group {
+        max-height: 700px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        overflow: hidden;
+        overflow-y: scroll;
+      }
+      

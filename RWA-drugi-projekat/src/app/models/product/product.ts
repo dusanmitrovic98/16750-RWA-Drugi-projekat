@@ -8,6 +8,7 @@ export class Product {
   name: string;
   description: string;
   price: string;
+  logoUrl: string;
   imageUrl: string;
   quantity: number;
   embed: string;

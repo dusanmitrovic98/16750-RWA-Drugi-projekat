@@ -11,12 +11,9 @@ export interface ProductState extends EntityState<Product> {
 export const adapter: EntityAdapter<Product> = createEntityAdapter<Product>();*/
 
 export const productAdapter = createEntityAdapter<Product>({
-  sortComparer:sortById
+
 });
 
-function sortById(e1: Product, e2: Product) {
-  return e2.id - e1.id
-}
 
 export interface ProductState {
   ids:number[],

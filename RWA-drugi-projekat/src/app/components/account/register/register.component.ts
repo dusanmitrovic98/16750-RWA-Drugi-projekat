@@ -5,6 +5,8 @@ import { first } from 'rxjs/operators';
 
 import { AccountService } from './../../../services/account.service';
 import { AlertService } from './../../../services/alert.service';
+import { Store } from '@ngrx/store';
+import { State } from 'src/app/store/reducers/root.reducer';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +23,8 @@ export class RegisterComponent implements OnInit {
       private route: ActivatedRoute,
       private router: Router,
       private accountService: AccountService,
-      private alertService: AlertService
+      private alertService: AlertService,
+      private store: Store<State>
   ) { }
 
   ngOnInit() {
@@ -48,6 +51,7 @@ export class RegisterComponent implements OnInit {
       }
 
       this.loading = true;
+      this.accountService.registerToStore(this.form.value);
       this.accountService.register(this.form.value)
           .pipe(first())
           .subscribe(

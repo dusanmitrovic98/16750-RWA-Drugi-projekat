@@ -1,0 +1,65 @@
+<div class="container mt-5 mb-5 text-white border-bottom border-white">
+    <div class="row mb-5">
+        <div class="col-sm-3">
+            <h5>System requirements</h5>
+        </div>
+        <div class="col-sm-9">
+            <div class="row">
+                <div class="col-sm-6">
+                    <span class="text-white">Minimal requirements</span>
+                    <div class="container-fluid" *ngIf="model.minimumSysReq.OS">
+                        <span class="main-font-color">OS</span>
+                        <div>{{model.minimumSysReq.OS}}</div>
+                    </div>
+                    <div class="container-fluid" *ngIf="model.minimumSysReq.Processor">
+                        <span class="main-font-color">Processor</span>
+                        <div>{{model.minimumSysReq.Processor}}</div>
+                    </div>
+                    <div class="container-fluid" *ngIf="model.minimumSysReq.Memory">
+                        <span class="main-font-color">Memory</span>
+                        <div>{{model.minimumSysReq.Memory}}</div>
+                    </div>
+                    <div class="container-fluid" *ngIf="model.minimumSysReq.Storage">
+                        <span class="main-font-color">Storage</span>
+                        <div>{{model.minimumSysReq.Storage}}</div>
+                    </div>
+                    <div class="container-fluid" *ngIf="model.minimumSysReq.DirectX">
+                        <span class="main-font-color">Direct X</span>
+                        <div>{{model.minimumSysReq.DirectX}}</div>
+                    </div>
+                    <div class="container-fluid" *ngIf="model.minimumSysReq.Graphics">
+                        <span class="main-font-color">Graphics</span>
+                        <div>{{model.minimumSysReq.Graphics}}</div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <span class="text-white">Recommended requirements</span>
+                    <div class="container-fluid" *ngIf="model.recommendedSysReq.OS">
+                        <span class="main-font-color">OS</span>
+                        <div>{{model.recommendedSysReq.OS}}</div>
+                    </div>
+                    <div class="container-fluid" *ngIf="model.recommendedSysReq.Processor">
+                        <span class="main-font-color">Processor</span>
+                        <div>{{model.recommendedSysReq.Processor}}</div>
+                    </div>
+                    <div class="container-fluid" *ngIf="model.recommendedSysReq.Memory">
+                        <span class="main-font-color">Memory</span>
+                        <div>{{model.recommendedSysReq.Memory}}</div>
+                    </div>
+                    <div class="container-fluid" *ngIf="model.recommendedSysReq.Storage">
+                        <span class="main-font-color">Storage</span>
+                        <div>{{model.recommendedSysReq.Storage}}</div>
+                    </div>
+                    <div class="container-fluid" *ngIf="model.recommendedSysReq.DirectX">
+                        <span class="main-font-color">Direct X</span>
+                        <div>{{model.recommendedSysReq.DirectX}}</div>
+                    </div>
+                    <div class="container-fluid" *ngIf="model.recommendedSysReq.Graphics">
+                        <span class="main-font-color">Graphics</span>
+                        <div>{{model.recommendedSysReq.Graphics}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

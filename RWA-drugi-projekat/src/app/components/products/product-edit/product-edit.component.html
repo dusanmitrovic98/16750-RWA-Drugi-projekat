@@ -1,3 +1,4 @@
+<!--<pre>{{ model.detailedDescription | json }}</pre>-->
 <div class="row justify-content-center text-white">
     <div class="col-8 mt-4">
         <h4>Edit Product</h4>
@@ -12,27 +13,16 @@
                 <textarea class="form-control" id="productDescription" name="description" required
                     [(ngModel)]="model.description" placeholder="Product Description"></textarea>
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="productPrice">Price</label>
-                    <input type="text" class="form-control" name="price" required [(ngModel)]="model.price"
-                        id="productPrice" placeholder="Example: $25.00">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="productQuantity">Quantity</label>
-                    <input type="number" class="form-control" name="quantity" required [(ngModel)]="model.quantity"
-                        id="productQuantity" placeholder="Example: 100">
-                </div>
+            <div class="form-group">
+                <label for="productPrice">Price</label>
+                <input type="text" class="form-control" name="price" required [(ngModel)]="model.price"
+                    id="productPrice" placeholder="Example: $25.00">
             </div>
             <div class="form-group">
                 <label for="productImageUrl">Image Url</label>
                 <input type="text" class="form-control" id="productImageUrl" required name="imageUrl"
                     [(ngModel)]="model.imageUrl" placeholder="Example: https://source.unsplash.com/1600x900/?product">
             </div>
-            <!--<button class="btn btn-primary m-1" [routerLink]="['/product/list']" type="submit"><i
-                    class="fas fa-arrow-left"></i> Back To List</button>
-            <button class="btn btn-warning m-1" type="submit" [disabled]="f.invalid">Edit Product <i
-                    class="fas fa-edit"></i></button>-->
             <div class="mb-3 form-group">
                 <label for="productEmbed">Embed code</label>
                 <textarea class="form-control" [(ngModel)]="model.embed" name="embed" class="form-control"
@@ -74,12 +64,12 @@
                 </div>
             </div>
         </form>
-        <pre>{{ model.detailedDescription | json }}</pre>
         <div> Detailed description
             <div class="row" *ngFor="let description of model.detailedDescription; let i = index">
                 <div class="col-md-6 mt-2">
                     <label for="productParagraphName">Paragraph name</label>
-                    <input type="text" [(ngModel)]="model.detailedDescription[i].paragraphName" name="model.detailedDescription[i].paragraphName" class="form-control"
+                    <input type="text" [(ngModel)]="model.detailedDescription[i].paragraphName"
+                        name="model.detailedDescription[i].paragraphName" class="form-control"
                         placeholder="Paragraph name...">
                 </div>
                 <div class="col-md-6 mt-2">
@@ -105,8 +95,6 @@
                     </svg> Remove description</button>
             </div>
         </div>
-
-        <pre>{{ model.detailedDescriptionImagesUrls | json }}</pre>
         <div> Detailed description image URLs
             <div class="row"
                 *ngFor="let detailedDescriptionImagesUrl of model.detailedDescriptionImagesUrls; let i = index">
@@ -133,8 +121,6 @@
                     </svg> Remove image</button>
             </div>
         </div>
-
-        <pre>{{ model.socialLinks | json }}</pre>
         <div class="form-group">
             <label for="productSocialLinks">Social links (optional)</label>
             <div class="col-md-12 mt-2">
@@ -163,8 +149,6 @@
                     placeholder="Twitter link...">
             </div>
         </div>
-        <pre>{{ model.minimumSysReq | json }}</pre>
-        <pre>{{ model.recommendedSysReq | json }}</pre>
         <div class="row">
             <div class="form-group col-md-6"><label>Minimal system requirements</label>
                 <div class="mt-2">
@@ -211,7 +195,6 @@
                 </div>
             </div>
         </div>
-        <pre>{{ model.languagesSupported | json }}</pre>
         <div class="row">
             <label>Languages</label>
             <input type="text" [(ngModel)]="model.languagesSupported" class="form-control" placeholder="Languages...">
