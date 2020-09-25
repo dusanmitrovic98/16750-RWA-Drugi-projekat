@@ -1,10 +1,9 @@
-import { Injectable } from '@angular/core';
+import { mergeMap, catchError, map, concatMap } from 'rxjs/operators';
+import { UserService } from 'src/app/services/user.service';
 import { createEffect, ofType, Actions } from '@ngrx/effects';
 import * as fromUserActions from '../actions/user.actions';
-import { mergeMap, catchError, map, concatMap } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-import { UserService } from 'src/app/services/user.service';
-import { Router } from '@angular/router';
 
 @Injectable()
 export class UserEffects {
@@ -25,7 +24,6 @@ export class UserEffects {
     )
   );
 
-  
   loadUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType<fromUserActions.loadUser>(
@@ -61,7 +59,7 @@ export class UserEffects {
             of(new fromUserActions.addUserFailure({ error }))
           )
         )
-      ),
+      )
     )
   );
 
@@ -72,10 +70,7 @@ export class UserEffects {
           fromUserActions.UserActionsTypes.UPDATE_USER
         ),
         concatMap((action) =>
-          this.userService.editUser(
-            action.user.id,
-            action.user.changes
-          )
+          this.userService.editUser(action.user.id, action.user.changes)
         )
       ),
     { dispatch: false }
@@ -83,9 +78,7 @@ export class UserEffects {
 
   deleteUsers$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(
-        fromUserActions.UserActionsTypes.DELETE_USER
-      ),
+      ofType(fromUserActions.UserActionsTypes.DELETE_USER),
       map((action: fromUserActions.deleteUser) => action.id),
       mergeMap((id: string) =>
         this.userService.deleteUser(id).pipe(
@@ -101,9 +94,5 @@ export class UserEffects {
     )
   );
 
-  constructor(
-    private actions$: Actions,
-    private userService: UserService,
-    private router: Router
-  ) {}
+  constructor(private actions$: Actions, private userService: UserService) {}
 }

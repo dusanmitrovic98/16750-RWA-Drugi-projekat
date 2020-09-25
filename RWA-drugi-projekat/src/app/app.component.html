@@ -6,13 +6,13 @@
     <a class="nav-item nav-link text-white" [routerLink]="['/product/list']" routerLinkActive="active">Store</a>
     <a class="nav-item ml-auto mr-2">
       <div class="btn-group navbar-nav">
-        <button type="button" id="navBarCart" class="btn btn-secondary dropdown-toggle text-white" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+        <button type="button" id="navBarCart" class="btn btn-secondary dropdown-toggle text-white"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{user.username}}
         </button>
         <div class="dropdown-menu dropdown-menu-right" id="cart-menu">
-          <button class="dropdown-item" type="button" [routerLink]="['/user']">Profile</button>
-          <button class="dropdown-item" type="button" (click)="logout()">  Logout</button>
+          <button class="dropdown-item" type="button" [routerLink]="['/profile']">Profile</button>
+          <button class="dropdown-item" type="button" (click)="logout()"> Logout</button>
         </div>
       </div>
     </a>

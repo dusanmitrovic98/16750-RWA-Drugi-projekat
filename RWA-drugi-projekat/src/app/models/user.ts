@@ -8,15 +8,15 @@ export class User {
     lastName: string;
     role: Role;
     token?: string;
-    boughtItemsIds: number[];
+    boughtItemId: number[];
 
     constructor(){
         this.username = "";
         this.password = "";
         this.firstName = "";
         this.lastName = "";
-        this.token = "";
-        this.boughtItemsIds = new Array<number>();
         this.role = Role.User;
+        this.token = "";
+        this.boughtItemId = new Array<number>();
     }
 }

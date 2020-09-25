@@ -1,17 +1,16 @@
+import { loadUsers, addUser } from '../store/actions/user.actions';
+import { environment } from './../../environments/environment';
+import { State } from '../store/reducers/root.reducer';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { UserService } from './user.service';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { User } from './../models/user';
 import { map } from 'rxjs/operators';
 
-import { environment } from './../../environments/environment';
-//import { AuthenticationService } from './../services/authentication.service';
-import { User } from './../models/user';
-import { Store } from '@ngrx/store';
-import { State } from '../store/reducers/root.reducer';
-import { loadUsers, addUser, updateUser } from '../store/actions/user.actions';
 import { Role } from '../models/role';
-import { Update } from '@ngrx/entity';
+import { Store } from '@ngrx/store';
 
 @Injectable({
   providedIn: 'root',
@@ -23,9 +22,9 @@ export class AccountService {
   constructor(
     private router: Router,
     private http: HttpClient,
-    private store: Store<State>
-  ) //private authenticationService: AuthenticationService
-  {
+    private store: Store<State>,
+    private userService: UserService
+  ) {
     this.userSubject = new BehaviorSubject<User>(
       JSON.parse(localStorage.getItem('currentUser'))
     );
@@ -44,9 +43,7 @@ export class AccountService {
       })
       .pipe(
         map((user) => {
-          // login successful if there's a jwt token in the response
           if (user && user.token) {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem('currentUser', JSON.stringify(user));
             this.userSubject.next(user);
           }
@@ -56,7 +53,6 @@ export class AccountService {
   }
 
   logout() {
-    // remove user from local storage and set current user to null
     localStorage.removeItem('currentUser');
     this.userSubject.next(null);
     this.router.navigate(['/account/login']);
@@ -69,7 +65,7 @@ export class AccountService {
 
   registerToStore(user: User) {
     user.role = Role.User;
-    user.boughtItemsIds = [];
+    user.boughtItemId = [];
     this.store.dispatch(new addUser(user));
     this.store.dispatch(new loadUsers());
   }
@@ -85,13 +81,10 @@ export class AccountService {
   update(id, params) {
     return this.http.put(`${environment.apiUrl}/users/${id}`, params).pipe(
       map((x) => {
-        // update stored user if the logged in user updated their own record
         if (id == this.userValue.id) {
-          // update local storage
           const user = { ...this.userValue, ...params };
           localStorage.setItem('currentUser', JSON.stringify(user));
 
-          // publish updated user to subscribers
           this.userSubject.next(user);
         }
         return x;
@@ -102,7 +95,6 @@ export class AccountService {
   delete(id: string) {
     return this.http.delete(`${environment.apiUrl}/users/${id}`).pipe(
       map((x) => {
-        // auto logout if the logged in user deleted their own record
         if (id == this.userValue.id.toString()) {
           this.logout();
         }

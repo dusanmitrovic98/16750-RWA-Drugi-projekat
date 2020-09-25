@@ -35,19 +35,19 @@
                             <button class="btn collapsed" data-toggle="collapse" data-target="#collapseSearchThree"
                                 aria-expanded="false" aria-controls="collapseSearchThree">
                                 <input #newItem name="search" autocomplete="off"
-                                    class="form-control form-control-sm main-color w-100 h-100" type="email" id="search-text"
-                                    aria-describedby="search-text" [(ngModel)]="searchText" placeholder="Search..."
-                                    autofocus>
+                                    class="form-control form-control-sm main-color w-100 h-100" type="email"
+                                    id="search-text" aria-describedby="search-text" [(ngModel)]="searchText"
+                                    placeholder="Search..." autofocus>
                             </button>
                         </div>
                         <div id="collapseSearchThree" class="collapse" aria-labelledby="headingThree"
                             data-parent="#accordionSearch">
                             <div class="card-body list-group">
-                                <button class="btn btn-secondary mb-1 w-100 h-100" (click) = "setSearchText(product.id)"
+                                <button class="btn btn-secondary mb-1 w-100 h-100" (click)="setSearchText(product.id)"
                                     *ngFor="let product of modelProducts | filterProducts: searchText">
                                     <div class="row">
                                         <div class="col-sm-5">
-                                            <img class="img-thumbnail main-color" src="{{product.logoUrl}}"/>
+                                            <img class="img-thumbnail main-color" src="{{product.logoUrl}}" />
                                         </div>
                                         <div class="col-sm-7 d-flex align-items-center justify-content-center">
                                             <div class="text-center"><span>{{product.name}}</span></div>

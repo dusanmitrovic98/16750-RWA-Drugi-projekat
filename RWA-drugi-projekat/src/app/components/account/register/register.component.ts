@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 
 import { AccountService } from './../../../services/account.service';
 import { AlertService } from './../../../services/alert.service';
-import { Store } from '@ngrx/store';
 import { State } from 'src/app/store/reducers/root.reducer';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-register',
@@ -19,12 +19,12 @@ export class RegisterComponent implements OnInit {
   submitted = false;
 
   constructor(
+    private accountService: AccountService,
+    private alertService: AlertService,
       private formBuilder: FormBuilder,
       private route: ActivatedRoute,
-      private router: Router,
-      private accountService: AccountService,
-      private alertService: AlertService,
-      private store: Store<State>
+      private store: Store<State>,
+      private router: Router
   ) { }
 
   ngOnInit() {
@@ -36,16 +36,13 @@ export class RegisterComponent implements OnInit {
       });
   }
 
-  // convenience getter for easy access to form fields
   get f() { return this.form.controls; }
 
   onSubmit() {
       this.submitted = true;
 
-      // reset alerts on submit
       this.alertService.clear();
 
-      // stop here if form is invalid
       if (this.form.invalid) {
           return;
       }

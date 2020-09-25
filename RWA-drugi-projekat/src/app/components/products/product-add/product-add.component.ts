@@ -1,16 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ProductService } from '../../../services/product.service';
-import { Store } from '@ngrx/store';
+
+import { SystemRequirements } from 'src/app/models/product/product-elements/system-requirements';
+import { SocialLinks } from 'src/app/models/product/product-elements/social-links';
 import { Description } from 'src/app/models/product/product-elements/description';
 import { ImageURL } from 'src/app/models/product/product-elements/image-url';
-import { SocialLinks } from 'src/app/models/product/product-elements/social-links';
-import { SystemRequirements } from 'src/app/models/product/product-elements/system-requirements';
-import { State } from 'src/app/store/reducers/root.reducer';
-import { addProduct } from 'src/app/store/actions/product.actions';
-import { ActivatedRoute } from '@angular/router';
 import { selectAllProducts } from 'src/app/store/adapters/product.adapter';
+import { addProduct } from 'src/app/store/actions/product.actions';
+import { State } from 'src/app/store/reducers/root.reducer';
 import { Product } from 'src/app/models/product/product';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-product-add',
@@ -18,20 +17,23 @@ import { Product } from 'src/app/models/product/product';
   styleUrls: ['./product-add.component.scss'],
 })
 export class ProductAddComponent implements OnInit {
-  model: any = {};
-  test: string = "test";
-  one: number = 1;
-  descriptions: Description[] = new Array<Description>();
-  detailedDescriptionImagesUrls: ImageURL[] = new Array<ImageURL>();
-  socialLinks: SocialLinks = new SocialLinks();
-  minSysReq: SystemRequirements = new SystemRequirements();
-  recSysReq: SystemRequirements = new SystemRequirements();
+  detailedDescriptionImagesUrls: ImageURL[];
+  minSysReq: SystemRequirements;
+  recSysReq: SystemRequirements;
+  descriptions: Description[];
+  socialLinks: SocialLinks;
   languages: string;
+  model: any = {};
 
   constructor(
-    private productService: ProductService,
     private store: Store<State>
-  ) {}
+  ) {
+    this.detailedDescriptionImagesUrls = new Array<ImageURL>();
+    this.descriptions = new Array<Description>();
+    this.minSysReq = new SystemRequirements();
+    this.recSysReq = new SystemRequirements();
+    this.socialLinks = new SocialLinks();
+  }
 
   ngOnInit() {
     this.descriptions.push(new Description('', ''));
@@ -39,7 +41,6 @@ export class ProductAddComponent implements OnInit {
     this.store.select(selectAllProducts).subscribe(products => {
     let product = products.filter(x => x.name === "Mortal Shell");
     this.model = Object.assign(new Product(), product[0]);
-    console.log(this.model);
     })
   }
 

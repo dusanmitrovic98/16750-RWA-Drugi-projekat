@@ -11,11 +11,10 @@ import {
   addUser,
   loadUsers,
   updateUser,
-  loadUsersFailure,
 } from 'src/app/store/actions/user.actions';
 import { Role } from 'src/app/models/role';
+import { UserService } from 'src/app/services/user.service';
 import { Update } from '@ngrx/entity';
-import { Product } from 'src/app/models/product/product';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -24,27 +23,29 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./edit-user.component.css'],
 })
 export class EditUserComponent implements OnInit {
-  productId: string = this.route.snapshot.paramMap.get('id');
-  form: FormGroup;
-  id: string;
+  productId: string;
   isAddMode: boolean;
-  loading = false;
   submitted = false;
+  form: FormGroup;
+  loading = false;
+  id: string;
 
   constructor(
-    private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
     private accountService: AccountService,
     private alertService: AlertService,
-    private store: Store<State>
-  ) {}
+    private userService: UserService,
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private store: Store<State>,
+    private router: Router
+  ) {
+    this.productId = this.route.snapshot.paramMap.get('id');
+  }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     this.isAddMode = !this.id;
 
-    // password not required in edit mode
     const passwordValidators = [Validators.minLength(6)];
     if (this.isAddMode) {
       passwordValidators.push(Validators.required);
@@ -69,7 +70,6 @@ export class EditUserComponent implements OnInit {
     }
   }
 
-  // convenience getter for easy access to form fields
   get f() {
     return this.form.controls;
   }
@@ -77,10 +77,8 @@ export class EditUserComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    // reset alerts on submit
     this.alertService.clear();
 
-    // stop here if form is invalid
     if (this.form.invalid) {
       return;
     }
@@ -95,6 +93,7 @@ export class EditUserComponent implements OnInit {
 
   private createUser() {
     this.form.value.role = Role.User;
+    this.form.value.boughtItemId = [];
     this.store.dispatch(new addUser(this.form.value));
     this.accountService
       .register(this.form.value)
@@ -104,6 +103,7 @@ export class EditUserComponent implements OnInit {
           this.alertService.success('User added successfully', {
             keepAfterRouteChange: true,
           });
+          this.store.dispatch(new loadUsers());
           this.router.navigate(['.', { relativeTo: this.route }]);
         },
         (error) => {
@@ -111,10 +111,15 @@ export class EditUserComponent implements OnInit {
           this.loading = false;
         }
       );
-          this.store.dispatch(new loadUsers());
   }
 
   private updateUser() {
+    this.form.value.role = Role.User;
+    const update: Update<User> = {
+      id: this.id,
+      changes: this.form.value,
+    };
+    this.store.dispatch(new updateUser(update));
     this.accountService
       .update(this.id, this.form.value)
       .pipe(first())
@@ -123,6 +128,7 @@ export class EditUserComponent implements OnInit {
           this.alertService.success('Update successful', {
             keepAfterRouteChange: true,
           });
+          this.store.dispatch(new loadUsers());
           this.router.navigate(['..', { relativeTo: this.route }]);
         },
         (error) => {
@@ -130,19 +136,5 @@ export class EditUserComponent implements OnInit {
           this.loading = false;
         }
       );
-      this.store.dispatch(new loadUsers());
-  }
-
-  click(){
-    this.form.value.role = Role.User;
-    let value: User = Object.assign(new User(), this.form.value);
-    const update: Update<Product> = {
-      id: this.productId,
-      changes: value,
-    };
-    this.store.dispatch(
-      new updateUser(update)
-    );
-    this.store.dispatch(new loadUsers());
   }
 }

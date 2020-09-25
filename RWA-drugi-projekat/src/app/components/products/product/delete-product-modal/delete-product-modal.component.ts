@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
-import { State } from 'src/app/store/reducers/root.reducer';
-import { selectAllProducts } from 'src/app/store/adapters/product.adapter';
 import * as fromProductActions from '../../../../store/actions/product.actions';
+import { selectAllProducts } from 'src/app/store/adapters/product.adapter';
+import { State } from 'src/app/store/reducers/root.reducer';
 import { Product } from 'src/app/models/product/product';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
 
 @Component({
   selector: 'app-delete-product-modal',

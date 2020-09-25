@@ -1,19 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 
-a { cursor: pointer }
+a {
+  cursor: pointer;
+}
 
 body {
-    background-color: #121212;
+  background-color: #121212;
 }
 
 .app-container {
-    min-height: 320px;
-    overflow: hidden;
+  min-height: 320px;
+  overflow: hidden;
 }
 
 .btn-delete-user {
-    width: 40px;
-    text-align: center;
-    box-sizing: content-box;
+  width: 40px;
+  text-align: center;
+  box-sizing: content-box;
 }

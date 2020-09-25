@@ -1,5 +1,5 @@
-import { UserState, userAdapter } from '../adapters/user.adapter';
 import { UsersActions, UserActionsTypes } from '../actions/user.actions';
+import { UserState, userAdapter } from '../adapters/user.adapter';
 
 export const initialState: UserState = {
   ids: [],
@@ -11,10 +11,43 @@ export function usersReducer(
   action: UsersActions
 ) {
   switch (action.type) {
+    case UserActionsTypes.ADD_USER_SUCCESS: {
+      return userAdapter.addOne(action.user, state);
+    }
+    case UserActionsTypes.ADD_USER_FAILURE: {
+      return {
+        ...state,
+        error: action.error,
+      };
+    }
     case UserActionsTypes.LOAD_USERS_SUCCESS: {
-      return userAdapter.addAll(action.users, state);
+      return userAdapter.setAll(action.users, state);
     }
     case UserActionsTypes.LOAD_USERS_FAILURE: {
+      return {
+        ...state,
+        error: action.error,
+      };
+    }
+    case UserActionsTypes.LOAD_USER_SUCCESS: {
+      return {
+        ...state,
+        selectedUser: action.selectedUser,
+      };
+    }
+    case UserActionsTypes.LOAD_USER_FAILURE: {
+      return {
+        ...state,
+        error: action.error,
+      };
+    }
+    case UserActionsTypes.UPDATE_USER: {
+      return userAdapter.updateOne(action.user, state);
+    }
+    case UserActionsTypes.DELETE_USER_SUCCESS: {
+      return userAdapter.removeOne(action.id, state);
+    }
+    case UserActionsTypes.DELETE_USER_FAILURE: {
       return {
         ...state,
         error: action.error,
@@ -24,46 +57,3 @@ export function usersReducer(
       return state;
   }
 }
-
-/*
-export const usersFeatureKey = 'users';
-
-export interface UserState extends EntityState<User> {
-  error: any
-  selectedUser: User
-}
-
-export const userAdapter: EntityAdapter<User> = createEntityAdapter<User>();
-
-export const initialUserState: UserState = userAdapter.getInitialState({
-  // additional entity state properties
-  error: undefined,
-  selectedUser: undefined
-});
-
-export const userReducer = createReducer(
-  initialUserState,
-  on(UserActions.loadUsersSuccess,
-    (state, action) => userAdapter.setAll(action.users, state)
-  ),
-  on(UserActions.loadUsersFailure,
-    (state, action) => {
-      return {
-        ...state,
-        error: action.error
-      }
-    }
-  )
-);
-
-export function reducerUser(state: UserState | undefined, action: Action){
-  return userReducer(state, action);
-}
-
-export const {
-  selectIds,
-  selectEntities,
-  selectAll,
-  selectTotal,
-} = userAdapter.getSelectors();
-*/

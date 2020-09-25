@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, mergeMap, catchError, tap, concatMap } from 'rxjs/operators';
-import { ProductService } from '../../services/product.service';
 import * as fromProductActions from '../../store/actions/product.actions';
-import { of, Observable } from 'rxjs';
+import { ProductService } from '../../services/product.service';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { of, Observable } from 'rxjs';
 
 @Injectable()
 export class ProductEffects {
@@ -84,9 +84,7 @@ export class ProductEffects {
 
   deleteProducts$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(
-        fromProductActions.ProductActionsTypes.DELETE_PRODUCT
-      ),
+      ofType(fromProductActions.ProductActionsTypes.DELETE_PRODUCT),
       map((action: fromProductActions.deleteProduct) => action.id),
       mergeMap((id: string) =>
         this.productService.deleteProduct(id).pipe(
@@ -102,82 +100,6 @@ export class ProductEffects {
       tap(() => this.router.navigate(['/product/list']))
     )
   );
-  /*
-  loadProducts$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(fromProductActions.loadProducts),
-      mergeMap(() =>
-        this.productService.getProducts().pipe(
-          map((products) =>
-            fromProductActions.loadProductsSuccess({ products })
-          ),
-          catchError((error) =>
-            of(fromProductActions.loadProductsFailure({ error }))
-          )
-        )
-      )
-    )
-  );
-
-  loadProduct$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(fromProductActions.loadProduct),
-      mergeMap((action) =>
-        this.productService.getProduct(action.id).pipe(
-          map((product) =>
-            fromProductActions.loadProductSuccess({ selectedProduct: product })
-          ),
-          catchError((error) =>
-            of(fromProductActions.loadProductFailure({ error }))
-          )
-        )
-      )
-    )
-  );
-
-  createProducts$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(fromProductActions.addProduct),
-      mergeMap((action) =>
-        this.productService.createProduct(action.product).pipe(
-          map((product) => fromProductActions.addProductSuccess({ product })),
-          catchError((error) =>
-            of(fromProductActions.addProductFailure({ error }))
-          )
-        )
-      ),
-      tap(() => this.router.navigate(['/product/list']))
-    )
-  );
-
-  updateProducts$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(fromProductActions.updateProduct),
-      concatMap((action) =>
-        this.productService.editProduct(
-          action.product.id,
-          action.product.changes
-        )
-      ),
-      tap(() => this.router.navigate(['/product/list']))
-    ),
-    { dispatch: false }
-  );
-
-  deleteProducts$ = createEffect(() =>
-  this.actions$.pipe(
-    ofType(fromProductActions.deleteProduct),
-    mergeMap((action) =>
-      this.productService.deleteProduct(action.id).pipe(
-        map((product) => fromProductActions.deleteProductSuccess({ id: action.id })),
-        catchError((error) =>
-          of(fromProductActions.deleteProductFailure({ error }))
-        )
-      )
-    ),
-    tap(() => this.router.navigate(['/product/list']))
-  )
-);*/
 
   constructor(
     private actions$: Actions,

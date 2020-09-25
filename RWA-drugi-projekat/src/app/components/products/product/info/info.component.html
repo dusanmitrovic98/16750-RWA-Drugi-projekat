@@ -21,7 +21,29 @@
                     </div>
                 </div>
                 <div class="">
-                    <button class="btn btn-lg btn-block border border-white main-color text-white align-self-end" (click)="buyProduct(model.id)">Buy now</button>
+                    <button *ngIf="!bought" type="button" class="btn btn-lg btn-block border border-white main-color text-white align-self-end"  data-toggle="modal" data-target="#exampleModalLong3">Buy now</button>
+                    <button *ngIf="bought" disabled type="button" class="btn btn-lg btn-block border border-white main-color text-white align-self-end"  data-toggle="modal" data-target="#exampleModalLong3">Owned</button>
+                      
+                      <!-- Modal -->
+                      <div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLong3Title" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content main-color modal-background" id="modal-content3">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLong3Title">Buy product?</h5>
+                              <button type="button bg-white" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              Are you sure that you want to buy this item?
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-secondary" (click)="buyProduct(model.id)" data-dismiss="modal">Buy now</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                 </div>
                 <div class="text-center mt-1" >
                     <div class="btn-group" role="group" aria-label="Basic example">

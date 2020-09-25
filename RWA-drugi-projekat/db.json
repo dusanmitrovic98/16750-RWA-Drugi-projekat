@@ -1,25 +1,42 @@
 {
-  "users": [
+  "registredUsers": [
     {
-      "id": 1,
       "username": "admin",
       "password": "admin",
-      "firstName": "adminName",
-      "lastName": "adminLastName",
+      "firstName": "Dušan",
+      "lastName": "Mitrović",
       "role": "Admin",
-      "boughtItemIds": [
-        1,
-        2
-      ]
+      "token": "",
+      "boughtItemId": [
+        0
+      ],
+      "id": 1
+    },
+    {
+      "firstName": "Dusan",
+      "lastName": "Mitrovic",
+      "username": "BK2O198",
+      "password": "Univerzum@98",
+      "role": "User",
+      "id": 2
+    },
+    {
+      "firstName": "ddads",
+      "lastName": "asdasdasd",
+      "username": "BK2O198",
+      "password": "Univerzum@98",
+      "role": "User",
+      "boughtItemId": [],
+      "id": 4
     },
     {
       "firstName": "test",
       "lastName": "test",
-      "username": "test",
+      "username": "BK2O1988",
       "password": "Univerzum@98",
       "role": "User",
-      "boughtItemsIds": [],
-      "id": 2
+      "boughtItemId": [],
+      "id": 5
     }
   ],
   "products": [
@@ -27,14 +44,13 @@
       "name": "God's Trigger",
       "description": "Slay enemies with speed and precision in an over-the-top show of blood and explosions. Play solo or with others, make split-second decisions, dodge bullets, and use weapons and abilities to inflict violence in the most graphic way possible.",
       "price": "14.99",
-      "logoUrl": "https://cdn2.unrealengine.com/egs-godstrigger-onemorelevel-ic1-400x400-708705137.png?h=270&resize=1&w=480",
       "imageUrl": "https://cdn1.epicgames.com/ceaa24233cdb4b678a1cf515e3a912e8/offer/EGS_GodsTrigger_OneMoreLevel_S2-1200x1600-f358d6781c0b38616e6cad865a427f13.jpg?h=854&amp;resize=1&amp;w=640",
       "quantity": 1,
       "embed": "https://www.youtube.com/embed/_2nN26GearI",
       "developer": "One More Level",
       "publisher": "Techland",
       "releaseDate": "Aug 20, 2020",
-      "tags": "Action,Indie,Rogue-Like",
+      "tags": "Action, Indie, Rogue-Like",
       "rating": "–",
       "platform": "Windows",
       "detailedDescription": [
@@ -83,6 +99,7 @@
         "Graphics": "NVIDIA GeForce GTX 970 4 GB"
       },
       "languagesSupported": "Audio: EnglishText: English, Chinese - Simplified, German, Italian, Polish, Russian, Spanish - Spain, Japanese, Portuguese - Brazil, French",
+      "logoUrl": "https://cdn2.unrealengine.com/egs-godstrigger-onemorelevel-ic1-400x400-708705137.png?h=270&resize=1&w=480",
       "id": 1
     },
     {
@@ -95,11 +112,7 @@
       "developer": "Cold Symmetry",
       "publisher": "Playstack Ltd",
       "releaseDate": "Aug 18, 2020",
-      "tags": [
-        "Indie",
-        "RPG",
-        "Single Player"
-      ],
+      "tags": "Indie, RPG, Single Player",
       "rating": "–",
       "platform": [
         "Windows"
@@ -185,16 +198,13 @@
       "name": "SnowRunner",
       "description": "Get ready for the next-generation off-road experience! Drive powerful vehicles and overcome extreme open environments to complete dozens of challenging missions solo or with up to 3 friends!",
       "price": "39.99",
-      "logoUrl": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fsnowrunner%2Fhome%2FSnowRunner_BaseGame_EpicGames_GameLogo_200x72-200x72-1c01585fbbc14f024f6fd8b1c7b809aa5909fb07.png?h=270&resize=1&w=480",
       "imageUrl": "https://cdn1.epicgames.com/2744acda6a2e493e9894b389b6564df7/offer/Diesel_productv2_snowrunner_home_SnowRunner_EpicGames_PortraitImage_860x1148-860x1148-bdf591a23e5a348671dc2a77465d0ba6c5871d68-860x1148-5a5adeae2140a3f0b5586750f70bf8e2-860x1148-5a5adeae2140a3f0b5586750f70bf8e2.jpg?h=854&resize=1&w=640",
       "quantity": 1,
       "embed": "https://www.youtube.com/embed/hcFSFjJ2b6o",
       "developer": "Saber Interactive",
       "publisher": "Focus Home Interactive",
       "releaseDate": "Apr 28, 2020",
-      "tags": [
-        "Simulation"
-      ],
+      "tags": "Simulation",
       "rating": "–",
       "platform": [
         "Windows"
@@ -279,55 +289,168 @@
         "Graphics": "20 GB"
       },
       "languagesSupported": "English, French, German, Italian, Spanish, Russian, Polish, Portuguese-Brazilian, Simplified Chinese,Traditional Chinese, Czech",
+      "logoUrl": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fsnowrunner%2Fhome%2FSnowRunner_BaseGame_EpicGames_GameLogo_200x72-200x72-1c01585fbbc14f024f6fd8b1c7b809aa5909fb07.png?h=270&resize=1&w=480",
       "id": 3
     },
     {
-      "name": "test",
-      "description": "test",
-      "price": "test",
-      "imageUrl": "https://cdn1.epicgames.com/ff8c96d781824ba1ae62d18d207fc52e/offer/EGS_MortalShell_ColdSymmetry_S6-1200x1600-10607273626b5c7b4e07dd999d9fcad4.jpg?h=854&resize=1&w=640",
-      "embed": "https://www.youtube.com/embed/r16Dc_jMWzA",
-      "developer": "test",
-      "publisher": "test",
-      "releaseDate": "test",
-      "tags": "test",
-      "rating": "test",
-      "platform": "test",
+      "name": "Remnant: From the Ashes",
+      "description": "The world has been thrown into chaos by an ancient evil from another dimension. As one of the last remnants of humanity, you must set out alone or alongside up to two other survivors to face down hordes of deadly enemies to retake what was lost.",
+      "price": "39.99",
+      "imageUrl": "https://cdn1.epicgames.com/663e521f2a444199be58152fd93fa66e/offer/EGS_RemnantFromtheAshes_GunfireGames_S2-1200x1600-394c6f196cf496047862762b3cc0c2a9.jpg?h=854&resize=1&w=640",
+      "quantity": 0,
+      "embed": "https://www.youtube.com/embed/pcBei3JUz5s",
+      "developer": "Gunfire Games",
+      "publisher": " Publisher Perfect World Entertainment Inc.",
+      "releaseDate": "Aug 13, 2020",
+      "tags": "Action, Shooter, Co-op",
+      "rating": "–",
+      "platform": "Windows",
       "detailedDescription": [
         {
           "paragraphName": "",
-          "paragraphDetails": ""
+          "paragraphDetails": "Remnant: From the Ashes is a third-person survival action shooter set in a post-apocalyptic world overrun by monstrous creatures. As one of the last remnants of humanity, you’ll set out alone or alongside up to two other players to face down hordes of deadly enemies and epic bosses, and try to carve a foothold, rebuild, and then retake what was lost."
+        },
+        {
+          "paragraphName": "A REMNANT OF MANKIND",
+          "paragraphDetails": "The world has been thrown into chaos by an ancient evil from another dimension. Humanity is struggling to survive, but they possess the technology to open portals to other realms and alternate realities. They must travel through these portals to uncover the mystery of where the evil came from, scavenge resources to stay alive, and fight back to carve out a foothold for mankind to rebuild..."
+        },
+        {
+          "paragraphName": "ENDLESS FANTASTIC REALMS AWAIT",
+          "paragraphDetails": "Explore dynamically-generated worlds that change each time you play through them, creating new maps, enemy encounters, quest opportunities, and in-world events. Each of the game’s four unique worlds is filled with monstrous denizens and environments that will provide fresh challenges with each playthrough. Adapt and explore… or die trying."
+        },
+        {
+          "paragraphName": "SCAVENGE. UPGRADE. SPECIALIZE.",
+          "paragraphDetails": "Overcome tough-as-nails enemies and epic bosses throughout hostile environments to earn experience, valuable loot and upgrade materials you can use to build a wicked arsenal of weapons, armor, and modifications to approach each encounter dozens of unique ways."
+        },
+        {
+          "paragraphName": "STRENGTH IN NUMBERS",
+          "paragraphDetails": "Invading other worlds to seek an end to the Root is dangerous and survival is far from guaranteed. Team up with up to two other players to increase your chances of survival. Teamwork is necessary to make it through the game’s toughest challenges…and unlock its greatest rewards."
         }
       ],
       "detailedDescriptionImagesUrls": [
         {
-          "imageURL": ""
+          "imageURL": "https://cdn2.unrealengine.com/egs-remnantfromtheashes-gunfiregames-g1a-01-1920x1080-534377425.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/egs-remnantfromtheashes-gunfiregames-g1a-02-1920x1080-534377413.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/egs-remnantfromtheashes-gunfiregames-g1a-03-1920x1080-534377590.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/egs-remnantfromtheashes-gunfiregames-g1a-04-1920x1080-534377578.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/egs-remnantfromtheashes-gunfiregames-g1c-00-1920x1080-534377612.jpg"
         }
       ],
       "socialLinks": {
         "instagram": "",
-        "gamePage": "",
-        "discord": "",
-        "facebook": "",
-        "twitter": ""
+        "gamePage": "https://www.remnantgame.com/",
+        "discord": "https://discordapp.gg/remnantgame",
+        "facebook": "https://facebook.com/remnantgame",
+        "twitter": "https://twitter.com/remnant_game"
       },
       "minimumSysReq": {
-        "OS": "",
-        "Processor": "",
-        "Memory": "",
+        "OS": "Windows 7 / 8 / 10 64 bit",
+        "Processor": "Intel Core i3-7350K (4.20 GHz) or better",
+        "Memory": "8 GB",
         "Storage": "",
         "DirectX": "",
-        "Graphics": ""
+        "Graphics": "AMD Radeon RX 470"
       },
       "recommendedSysReq": {
-        "OS": "",
-        "Processor": "",
-        "Memory": "",
+        "OS": "Windows 7 / 8 / 10 64 bit",
+        "Processor": "Intel Core i5-4590 (3.70 GHz) or better",
+        "Memory": "8 GB",
         "Storage": "",
         "DirectX": "",
-        "Graphics": ""
+        "Graphics": "Nvidia GeForce GTX 970"
       },
-      "id": 4
+      "languagesSupported": "AUDIO: English, French, German, Italian, Russian, Spanish - SpainTEXT: English, Chinese - Simplified, Chinese - Traditional, French, German, Italian, Russian, Portuguese, Spanish - Spain",
+      "id": 4,
+      "logoUrl": "https://cdn2.unrealengine.com/egs-remnantfromtheashes-gunfiregames-ic1-200x200-534376869.png?h=270&amp;resize=1&amp;w=480"
+    },
+    {
+      "name": "Red Dead Redemption 2",
+      "description": "Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, Red Dead Redemption 2 is the epic tale of outlaw Arthur Morgan and the infamous Van der Linde gang, on the run across America at the dawn of the modern age. Also includes access to the shared liv...",
+      "price": "59.99",
+      "imageUrl": "https://cdn1.epicgames.com/epic/offer/RDR2PC1227_Epic%20Games_860x1148-860x1148-b4c2210ee0c3c3b843a8de399bfe7f5c.jpg?h=854&resize=1&w=640",
+      "quantity": 0,
+      "embed": "https://www.youtube.com/embed/eaW0tYpxyp0",
+      "developer": "Rockstar Games",
+      "publisher": "Rockstar Games",
+      "releaseDate": "Nov 5, 2019",
+      "tags": "Narration, Action, Open World",
+      "rating": "–",
+      "platform": [
+        "Windows"
+      ],
+      "detailedDescription": [
+        {
+          "paragraphName": "Red Dead Redemption 2",
+          "paragraphDetails": "America, 1899."
+        },
+        {
+          "paragraphName": "",
+          "paragraphDetails": "Arthur Morgan and the Van der Linde gang are outlaws on the run. With federal agents and the best bounty hunters in the nation massing on their heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to survive. As deepening internal divisions threaten to tear the gang apart, Arthur must make a choice between his own ideals and loyalty to the gang who raised him."
+        },
+        {
+          "paragraphName": "",
+          "paragraphDetails": "Now featuring additional Story Mode content and a fully-featured Photo Mode, Red Dead Redemption 2 also includes free access to the shared living world of Red Dead Online, where players take on an array of roles to carve their own unique path on the frontier as they track wanted criminals as a Bounty Hunter, create a business as a Trader, unearth exotic treasures as a Collector or run an underground distillery as a Moonshiner and much more."
+        },
+        {
+          "paragraphName": "",
+          "paragraphDetails": "With all new graphical and technical enhancements for deeper immersion, Red Dead Redemption 2 for PC takes full advantage of the power of the PC to bring every corner of this massive, rich and detailed world to life including increased draw distances; higher quality global illumination and ambient occlusion for improved day and night lighting; improved reflections and deeper, higher resolution shadows at all distances; tessellated tree textures and improved grass and fur textures for added realism in every plant and animal."
+        },
+        {
+          "paragraphName": "",
+          "paragraphDetails": "Red Dead Redemption 2 for PC also offers HDR support, the ability to run high-end display setups with 4K resolution and beyond, multi-monitor configurations, widescreen configurations, faster frame rates and more."
+        }
+      ],
+      "detailedDescriptionImagesUrls": [
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fheather%2Fhome%2FEGS_RockstarGames_RedDeadRedemption2_G1A_01-1920x1080-8a72c86b8fed73f57311d0d1ba456e6964f0aaa2.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fheather%2Fhome%2FEGS_RockstarGames_RedDeadRedemption2_G1A_02-1920x1080-4b6978a5abd9d179eda514bc8853c8ffcdacd690.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fheather%2Fhome%2FEGS_RockstarGames_RedDeadRedemption2_G1A_04-1920x1080-3e2c5e1e843eac593d1957ea22ef5f128c34b995.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fheather%2Fhome%2FEGS_RockstarGames_RedDeadRedemption2_G1A_03-1920x1080-efec0a8683b70a14f5de2d281caad6267a85de44.jpg"
+        },
+        {
+          "imageURL": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fheather%2Fhome%2FEGS_RockstarGames_RedDeadRedemption2_G1A_05-1920x1080-6bafd36e86592a47e8aacb6899690653d6c2428d.jpg"
+        }
+      ],
+      "socialLinks": {
+        "instagram": "https://www.instagram.com/rockstargames",
+        "gamePage": "",
+        "discord": "",
+        "facebook": "https://www.facebook.com/rockstargames",
+        "twitter": "https://twitter.com/RockstarGames"
+      },
+      "minimumSysReq": {
+        "OS": "Windows 7 - Service Pack 1 (6.1.7601)",
+        "Processor": "Intel(R) Core(TM) i5-2500K / AMD FX-6300",
+        "Memory": "8GB",
+        "Storage": "150GB",
+        "DirectX": "",
+        "Graphics": "Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB"
+      },
+      "recommendedSysReq": {
+        "OS": "Windows 10 - April 2018 Update (v1803)",
+        "Processor": "Intel(R) Core(TM) i7-4770K / AMD Ryzen 5 1500x",
+        "Memory": "12GB",
+        "Storage": "150GB",
+        "DirectX": "",
+        "Graphics": "Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480"
+      },
+      "languagesSupported": "Voice: English, Text: English, Simplified Chinese, Traditional Chinese, Portugues ( Brazilian ), French, German, Italian, Japanese, Korean, Polish, Russian, Portuguese, Spanish (Spain ), Spanish (LATAM)",
+      "logoUrl": "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fheather%2Fhome%2FEGS_RockstarGames_RedDeadRedemption2_IC1-625x625-38ae1bca6b89370d01ac3ed3a17daf7dd004f9f5.png?h=270&resize=1&w=480",
+      "id": 5
     }
   ]
 }

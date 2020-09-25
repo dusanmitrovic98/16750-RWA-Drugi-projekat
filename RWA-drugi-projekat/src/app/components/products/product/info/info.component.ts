@@ -1,14 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { loadUsers, updateUser } from 'src/app/store/actions/user.actions';
+import { AccountService } from 'src/app/services/account.service';
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
+import { State } from 'src/app/store/reducers/root.reducer';
+import { UserService } from 'src/app/services/user.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { Role } from 'src/app/models/role';
 import { User } from 'src/app/models/user';
-import { AccountService } from 'src/app/services/account.service';
+import { Output } from '@angular/core';
 import { Update } from '@ngrx/entity';
-import { Product } from 'src/app/models/product/product';
 import { Store } from '@ngrx/store';
-import { State } from 'src/app/store/reducers/root.reducer';
-import { updateUser, loadUsers } from 'src/app/store/actions/user.actions';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-info',
@@ -16,50 +16,53 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./info.component.css'],
 })
 export class InfoComponent implements OnInit {
-  @Input() model: any;
   faDollarSign = faDollarSign;
-  user: User = new User();
+  @Input() model: any;
+  @Output() user: User;
   isAdmin: boolean;
-  users: any = {};
+  currentUser: any;
+  bought: boolean;
 
-  constructor(private accountService: AccountService, private store: Store<State>, private userService: UserService) {}
+  constructor(
+    private accountService: AccountService,
+    private userService: UserService,
+    private store: Store<State>
+  ) {}
 
   ngOnInit(): void {
-    this.accountService.user.subscribe((x) => (this.user = Object.assign(new User(), x)));
-    console.log(this.user);
-    this.userService.getUsers().subscribe((users) => {
-      this.users = Object.assign(new Array<User>(), users);
-      console.log(this.users);
-      this.users.map((user) => {
-        if (user.password === this.user.password) {
-          this.user = Object.assign(new User(), user);
-        }
-      });    console.log(this.user);
+    this.bought = false;
+    this.currentUser = this.accountService.userValue;
+    this.userService.getUser(this.currentUser.id).subscribe((user) => {
+      this.user = Object.assign(new User(), user);
+      this.user.boughtItemId.map((id: number) => {
+        this.bought = this.user.boughtItemId.includes(this.model.id - 1);
+      });
+      this.isAdmin = this.isAdminn;
     });
-    this.isAdmin = this.isAdminn;
   }
 
-  get isAdminn() : any {
+  get isAdminn(): any {
     return this.user && this.user.role === Role.Admin;
   }
 
   buyProduct(id: number) {
-    debugger;
-    console.log(id);
     let ids: number[] = [];
-    ids = Object.assign(new Array<number>(), this.user.boughtItemsIds);
-    this.user.boughtItemsIds = [];
-    this.user.boughtItemsIds.push(id);
-    ids.map(id=>{
-      this.user.boughtItemsIds.push(id);
-    })
+    ids = Object.assign(new Array<number>(), this.user.boughtItemId);
+    this.user.boughtItemId.push(id - 1);
+    ids.map((id) => {
+      this.user.boughtItemId.push(id);
+    });
+    this.user.boughtItemId = [...new Set(this.user.boughtItemId)];
+    this.storeUpdateUser(this.user.id, this.user);
+    this.bought = true;
+  }
 
-    this.user.boughtItemsIds = [...new Set(this.user.boughtItemsIds)];
-    console.log(this.user);
-    this.userService.editUser(this.user.id, this.user);
-    this.userService.getUsers().subscribe(x=>{
-      console.log(x);
-    })
-    alert("Purchased.");
+  storeUpdateUser(id: number, user: User) {
+    const update: Update<User> = {
+      id: id,
+      changes: user,
+    };
+    this.store.dispatch(new updateUser(update));
+    this.store.dispatch(new loadUsers());
   }
 }

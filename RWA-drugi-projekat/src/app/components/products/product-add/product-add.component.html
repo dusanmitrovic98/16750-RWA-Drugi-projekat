@@ -4,23 +4,28 @@
         <form #f="ngForm" (ngSubmit)="onSubmit(f)">
             <div class="form-group">
                 <label for="productName">Product Name</label>
-                <input type="text" ngModel [(ngModel)]="test" required name="name" class="form-control" id="productName"
+                <input type="text" ngModel [(ngModel)]="model.name" required name="name" class="form-control" id="productName"
                     placeholder="Name">
             </div>
             <div class="mb-3 form-group">
                 <label for="productDescription">Description</label>
-                <textarea class="form-control" ngModel [(ngModel)]="test" name="description" class="form-control"
+                <textarea class="form-control" ngModel [(ngModel)]="model.description" name="description" class="form-control"
                     id="productDescription" placeholder="Product Description"></textarea>
             </div>
             <div class="form-group">
                 <label for="productPrice">Price</label>
-                <input type="text" name="price" ngModel [(ngModel)]="test" required class="form-control"
+                <input type="text" name="price" ngModel [(ngModel)]="model.price" required class="form-control"
                     id="productPrice" placeholder="Example: 25.00">
             </div>
             <div class="form-group">
                 <label for="productImageUrl">Image Url</label>
                 <input type="text" name="imageUrl" ngModel [(ngModel)]="model.imageUrl" required class="form-control"
                     id="productImageUrl" placeholder="Example: https://source.unsplash.com/1600x900/?product">
+            </div>
+            <div class="form-group">
+                <label for="productLogoUrl">Logo Url</label>
+                <input type="text" name="logoUrl" ngModel [(ngModel)]="model.logoUrl" required class="form-control"
+                    id="productLogoUrl" placeholder="Example: https://source.unsplash.com/1600x900/?product">
             </div>
             <div class="mb-3 form-group">
                 <label for="productEmbed">Embed code</label>
@@ -30,36 +35,36 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="productDeveloper">Developer</label>
-                    <input type="text" name="developer" ngModel [(ngModel)]="test" required class="form-control"
+                    <input type="text" name="developer" ngModel [(ngModel)]="model.developer" required class="form-control"
                         id="productDeveloper" placeholder="Example: One More Level">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="productPublisher">Publisher</label>
-                    <input type="text" name="publisher" ngModel [(ngModel)]="test" class="form-control"
+                    <input type="text" name="publisher" ngModel [(ngModel)]="model.publisher" class="form-control"
                         id="productPublisher" placeholder="Example: Techland">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="productReleaseDate">Release date</label>
-                    <input type="text" name="releaseDate" ngModel [(ngModel)]="test" required class="form-control"
+                    <input type="text" name="releaseDate" ngModel [(ngModel)]="model.releaseDate" required class="form-control"
                         id="productReleaseDate" placeholder="Example: Aug 20, 2020">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="productTags">Tags</label>
-                    <input type="text" name="tags" ngModel [(ngModel)]="test" class="form-control" id="productTags"
+                    <input type="text" name="tags" ngModel [(ngModel)]="model.tags" class="form-control" id="productTags"
                         placeholder="Example: Action, Indie, Rouge-Like">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="productRating">Rating</label>
-                    <input type="text" name="rating" ngModel [(ngModel)]="test" required class="form-control"
+                    <input type="text" name="rating" ngModel [(ngModel)]="model.rating" required class="form-control"
                         id="productRating" placeholder="Example: - (no rating) | 8.5">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="productPlatform">Platform</label>
-                    <input type="text" name="platform" ngModel [(ngModel)]="test" class="form-control"
+                    <input type="text" name="platform" ngModel [(ngModel)]="model.platform" class="form-control"
                         id="productPlatform" placeholder="Example: Windows">
                 </div>
             </div>

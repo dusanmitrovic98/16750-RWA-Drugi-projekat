@@ -1,18 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from '../../../models/product/product';
-import { ProductService } from '../../../services/product.service';
-import { Router } from '@angular/router';
-import { Store, select } from '@ngrx/store';
 import * as fromProductActions from '../../../store/actions/product.actions';
-import * as fromUserActions from '../../../store/actions/user.actions';
-import { Observable } from 'rxjs';
-import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/models/user';
-import { State } from 'src/app/store/reducers/root.reducer';
 import { selectAllProducts } from 'src/app/store/adapters/product.adapter';
+import * as fromUserActions from '../../../store/actions/user.actions';
 import { selectAllUsers } from 'src/app/store/adapters/user.adapter';
 import { AccountService } from 'src/app/services/account.service';
+import { State } from 'src/app/store/reducers/root.reducer';
+import { Product } from '../../../models/product/product';
+import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { User } from 'src/app/models/user';
 import { Role } from 'src/app/models/role';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -28,7 +25,10 @@ export class ProductListComponent implements OnInit {
   isAdmin: boolean;
   user: User;
 
-  constructor(private router: Router, private store: Store<State>,private accountService: AccountService) {}
+  constructor(
+    private store: Store<State>,
+    private accountService: AccountService
+  ) {}
 
   ngOnInit() {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -41,10 +41,10 @@ export class ProductListComponent implements OnInit {
     this.isAdmin = this.isAdminn;
   }
 
-  get isAdminn() : any {
+  get isAdminn(): any {
     return this.user && this.user.role === Role.Admin;
   }
-  
+
   loadProducts() {
     this.products$ = this.store.select(selectAllProducts);
     this.products$.subscribe((products) => {
@@ -66,5 +66,5 @@ export class ProductListComponent implements OnInit {
   setSearchText(newItem: string) {
     console.log(newItem);
     this.searchText = newItem;
-  }  
+  }
 }

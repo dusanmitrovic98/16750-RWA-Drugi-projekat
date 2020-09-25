@@ -23,6 +23,11 @@
                 <input type="text" class="form-control" id="productImageUrl" required name="imageUrl"
                     [(ngModel)]="model.imageUrl" placeholder="Example: https://source.unsplash.com/1600x900/?product">
             </div>
+            <div class="form-group">
+                <label for="productLogoUrl">Logo Url</label>
+                <input type="text" name="logoUrl" ngModel [(ngModel)]="model.logoUrl" required class="form-control"
+                    id="productLogoUrl" placeholder="Example: https://source.unsplash.com/1600x900/?product">
+            </div>
             <div class="mb-3 form-group">
                 <label for="productEmbed">Embed code</label>
                 <textarea class="form-control" [(ngModel)]="model.embed" name="embed" class="form-control"

@@ -1,16 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { ProductService } from '../../../services/product.service';
-import { Observable, of } from 'rxjs';
-import { Product } from '../../../models/product/product';
-import { Store, select } from '@ngrx/store';
+import { selectAllProducts } from 'src/app/store/adapters/product.adapter';
 import * as fromActions from '../../../store/actions/product.actions';
 import { State } from 'src/app/store/reducers/root.reducer';
-import { selectAllProducts } from 'src/app/store/adapters/product.adapter';
+import { Product } from '../../../models/product/product';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
-import { User } from 'src/app/models/user';
-import { AccountService } from 'src/app/services/account.service';
-import { Role } from 'src/app/models/role';
+import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-product',
@@ -22,21 +18,18 @@ export class ProductComponent implements OnInit {
   product$: Observable<Product>;
   products$: Observable<Product[]>;
   imageURLs: Observable<any>;
-  model: any = {};
   modelProducts: any = {};
   searchText = '';
-  user: User;
+  model: any = {};
 
   constructor(
     private route: ActivatedRoute,
     private store: Store<State>,
     private sanitizer: DomSanitizer,
-    public router: Router,
-    private accountService: AccountService
+    public router: Router
   ) {}
 
   ngOnInit() {
-    this.accountService.user.subscribe((x) => (this.user = x));
     this.store.pipe(select(selectAllProducts)).subscribe((products) => {
       this.products$ = of(products);
       this.modelProducts = Object.assign(new Array<Product>(), products);
@@ -46,10 +39,6 @@ export class ProductComponent implements OnInit {
         products[Number(this.productId) - 1]
       );
     });
-  }
-
-  get isAdmin() {
-    return this.user && this.user.role === Role.Admin;
   }
 
   deleteProduct(id: string) {

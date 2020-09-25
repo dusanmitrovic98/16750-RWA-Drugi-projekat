@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 
-import { User } from './../../models/user';
-import { UserService } from './../../services/user.service';
 import { AccountService } from 'src/app/services/account.service';
-import { Store } from '@ngrx/store';
-import { State } from 'src/app/store/reducers/root.reducer';
+import { UserService } from './../../services/user.service';
+import { User } from './../../models/user';
 
 @Component({
   templateUrl: 'admin.component.html',
@@ -18,9 +16,8 @@ export class AdminComponent implements OnInit {
   users: User[] = [];
 
   constructor(
-    private userService: UserService,
     private accountService: AccountService,
-    private store: Store<State>
+    private userService: UserService
   ) {
     this.currentUser = this.accountService.userValue;
   }

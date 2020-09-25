@@ -53,3 +53,27 @@
       ,
       "languagesSupported": ""
     }
+
+
+     "users": [
+    {
+    "id": 1,
+    "username": "admin",
+    "password": "admin",
+    "firstName": "adminName",
+    "lastName": "adminLastName",
+    "role": "Admin",
+    "boughtItemId": [
+    1,
+    2
+    ]
+    },
+    {
+    "firstName": "Dusann",
+    "lastName": "Mitrovic",
+    "username": "BK2O198",
+    "password": "Univerzum@98",
+    "role": "User",
+    "id": 2
+    }
+    ]
